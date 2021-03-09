@@ -1,4 +1,4 @@
-# I2C Interfacing
+# I2C Interfacing with C (draft)
 
 ## Objectives
 1. To transmit data trhough the I2C bus using the Raspbian terminal.
