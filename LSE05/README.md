@@ -1,19 +1,19 @@
-# I$^2$C Interfacing with C (draft)
+# I2C Interfacing with C (draft)
 
 ## Objectives
-1. To transmit data through the I2C bus using the Raspbian terminal.
-2. To implement a bus architecture using the I2C serial protocol with two sensors: a Real Time Clock and Thermometer.
+1. To transmit data through a I2C bus using the Raspbian terminal.
+2. To implement a bus architecture using the I2C serial protocol with two sensors: a Real Time Clock (RTC) and Thermometer.
 
 ## Pre-lab (Installation)
-1. Open the RXTerminal and install the NTPdate utility by typing in the following:
+1. Open the RXTerminal and install the **NTPdate** utility by typing in the following command:
 ```
 $sudo apt-get install build-essential manpages-dev ntpdate
 ```
-2. Add the main library. Go to your web browser inside the Raspbian Environment and go to this page: http://www.airspayce.com/mikem/bcm2835/bcm2835-1.58.tar.gz
+2. Download the main library package:
 ```
 $ wget "http://www.airspayce.com/mikem/bcm2835/bcm2835-1.58.tar.gz"
 ```
-3. Uncompress the downloaded package by:
+3. Uncompress the downloaded package:
 ```
 $ sudo tar zxvf bcm2835-1.58.tar.gz
 ```
