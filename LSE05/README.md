@@ -1,7 +1,7 @@
-# I2C Interfacing with C (draft)
+# I$^2$C Interfacing with C (draft)
 
 ## Objectives
-1. To transmit data trhough the I2C bus using the Raspbian terminal.
+1. To transmit data through the I2C bus using the Raspbian terminal.
 2. To implement a bus architecture using the I2C serial protocol with two sensors: a Real Time Clock and Thermometer.
 
 ## Pre-lab (Installation)
