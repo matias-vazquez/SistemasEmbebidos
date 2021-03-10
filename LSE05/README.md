@@ -43,7 +43,7 @@ $ sudo make install
 ```
 
 ## Lab work
-### Hardware and Fire Test
+### Part I. Hardware and Fire Test
 The hardware setup, including the Raspberry Pi 3 + the Tiny RTC i2C modules DS1307 + the TC74 temperature sensor is shown below:
 ![Hardware setup](img/fig04.png)
 
@@ -77,10 +77,10 @@ Identify the corresponding code sections in i2c.c (the full source code can be a
 3. How to define read write operations?
 4. What is the meaning of  dlen ?
 
-Run the program and obtain the data of seconds, minutes and hours from the RTC (you can review the DS1307 datasheet from https://datasheets.maximintegrated.com/en/ds/DS1307.pdf), and display the data on the terminal. Your program should also set the current date and time onto the RTC. Demonstrate how to read individually each location of the RTC (seconds, minutes, etc.) by adjusting the RTC internal pointer. Document the commands and show print screens. Also show how to read all the memory locations at once using the commands. Show the commands and printscreens.
+### Part II. Bus Topology
+Backup the i2c.c file and modify a new copy to obtain the data of seconds, minutes and hours from the RTC (checkout the DS1307 datasheet at https://datasheets.maximintegrated.com/en/ds/DS1307.pdf), and display it on the terminal. Your program should also set the current date and time onto the RTC. Demonstrate how to read individually each location of the RTC (seconds, minutes, etc.) by adjusting the RTC internal pointer. Document the commands and take screenshots. Also, show how to read all the memory locations at once using the commands. Show the commands and screenshots.
 
-### Bus Topology
-Both, the TC74 (check out the datasheet at https://ww1.microchip.com/downloads/en/DeviceDoc/21462D.pdf) and the RTC should be hooked up to the same I2C bus and must work as Slaves; the Raspberry Pi should be setup as Master. Report your files with the final code. Report the commands to build and execute the program. Report printouts illustrating the correct operation of your program. Demonstrate to the professor your program working correctly.
+Both, the TC74 (check out the datasheet at https://ww1.microchip.com/downloads/en/DeviceDoc/21462D.pdf) and the RTC should be hooked up to the same I2C bus and must work as *slaves*; the Raspberry Pi should be set as *master*. Report your files with the final code. Report the commands to build and execute the program. Report printouts illustrating the correct operation of your program. Demonstrate to the professor your program working correctly.
 
 Display the collected data on the terminal and log it in, in a .txt file. The logged data should follow the format showed below:
 ```
