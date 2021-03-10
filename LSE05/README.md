@@ -5,19 +5,28 @@
 2. To implement a bus architecture using the I2C serial protocol with two sensors: a Real Time Clock (RTC) and Thermometer.
 
 ## Pre-lab (Setup)
-1. Open the RXTerminal and install the **NTPdate** utility by typing in the following command:
+1. Open the Terminal and enable the I2C port and the Device Tree:
+```
+$ sudo raspi-config
+```
+   * Go to *Interfacing Options* and enable P5 I2C
+2. Then, restart the Raspberry Pi:
+```
+$ sudo reboot
+```
+3. From a new Terminal window, install the **NTPdate** utility by typing in the following command:
 ```
 $ sudo apt-get install build-essential manpages-dev ntpdate
 ```
-2. Download the C library for Broadcom BCM 2835 microprocessor (detailed info at http://www.airspayce.com/mikem/bcm2835):
+4. Download the C library for Broadcom BCM 2835 microprocessor (detailed info at http://www.airspayce.com/mikem/bcm2835):
 ```
 $ wget "http://www.airspayce.com/mikem/bcm2835/bcm2835-1.58.tar.gz"
 ```
-3. Uncompress the downloaded package:
+5. Uncompress the downloaded package:
 ```
 $ sudo tar zxvf bcm2835-1.58.tar.gz
 ```
-4. Once unpackaged, proceed to install the software:
+6. Once unpackaged, install the library:
 ```
 $ cd bcm2835-1.58
 $ ./configure
@@ -25,12 +34,12 @@ $ make
 $ sudo make check
 $ sudo make install
 ```
-5. To verify the installation, go inside the bcm2835-1.58 folder and locate the folder with the name src. From the Terminal, insert the next command to go to this subfolder and introduce the following commands:
+7. To verify the installation of the library, locate the folder *src* inside your library folder, and introduce the following commands:
 ```
 $ make
 $ sudo ./test
 ```
-6. IF SOMETHING GOES WRONG. On terminal, type in:
+8. IF SOMETHING GOES WRONG. On terminal, type in:
 ```
 $ sudo raspi-config
 ```
