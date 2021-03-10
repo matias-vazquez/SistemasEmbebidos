@@ -9,7 +9,12 @@
 ```
 $ sudo raspi-config
 ```
-   * Go to *Interfacing Options* and enable P5 I2C
+   * Go to *Interfacing Options* and enable **P5 I2C**
+
+(https://github.com/matias-vazquez/SistemasEmbebidos/tree/main/LSE05/img/fig01.png)
+(https://github.com/matias-vazquez/SistemasEmbebidos/tree/main/LSE05/img/fig02.png)
+(https://github.com/matias-vazquez/SistemasEmbebidos/tree/main/LSE05/img/fig03.png)
+
 2. Then, restart the Raspberry Pi:
 ```
 $ sudo reboot
@@ -34,13 +39,8 @@ $ make
 $ sudo make check
 $ sudo make install
 ```
-7. To verify the installation of the library, locate the folder *src* inside your library folder, and introduce the following commands:
-```
-$ make
-$ sudo ./test
-```
-8. IF SOMETHING GOES WRONG. On terminal, type in:
-```
+
+
 $ sudo raspi-config
 ```
   - Choose option (5) Interfacing Options:
