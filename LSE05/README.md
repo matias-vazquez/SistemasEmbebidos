@@ -11,9 +11,9 @@ $ sudo raspi-config
 ```
    * Go to *Interfacing Options* and enable **P5 I2C**
 
-!(/img/fig01.png)
-!(/img/fig02.png)
-!(/img/fig03.png)
+![Alt text](img/fig01.png)
+!(img/fig02.png)
+!(img/fig03.png)
 
 2. Then, restart the Raspberry Pi:
 ```
