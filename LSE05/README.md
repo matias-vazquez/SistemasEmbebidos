@@ -9,11 +9,13 @@
 ```
 $ sudo raspi-config
 ```
-   * Go to *Interfacing Options* and enable **P5 I2C**
+   * Go to *Interfacing Options* 
 
-![Alt text](img/fig01.png)
-!(img/fig02.png)
-!(img/fig03.png)
+![Interfacing options screen] (img/fig01.png)
+
+   * and enable **P5 I2C**
+
+![I2C enabling screen] (img/fig02.png)
 
 2. Then, restart the Raspberry Pi:
 ```
@@ -68,6 +70,8 @@ For test the connection and find out the device address on the i2c bus, you can 
 $ sudo i2cdetect -y 1
 ```
 If everything goes well you must see on terminal something like:
+
+![1i2 detect screen] (img/fig03.png)
 
 Report all the required steps and the printout of each step. 
 
