@@ -11,9 +11,9 @@ $ sudo raspi-config
 ```
    * Go to *Interfacing Options* and enable **P5 I2C**
 
-(https://github.com/matias-vazquez/SistemasEmbebidos/tree/main/LSE05/img/fig01.png)
-(https://github.com/matias-vazquez/SistemasEmbebidos/tree/main/LSE05/img/fig02.png)
-(https://github.com/matias-vazquez/SistemasEmbebidos/tree/main/LSE05/img/fig03.png)
+!(https://github.com/matias-vazquez/SistemasEmbebidos/tree/main/LSE05/img/fig01.png)
+!(https://github.com/matias-vazquez/SistemasEmbebidos/tree/main/LSE05/img/fig02.png)
+!(https://github.com/matias-vazquez/SistemasEmbebidos/tree/main/LSE05/img/fig03.png)
 
 2. Then, restart the Raspberry Pi:
 ```
