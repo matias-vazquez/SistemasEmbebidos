@@ -44,16 +44,18 @@ $ sudo make install
 
 ## Lab work
 ### Hardware and Fire Test
-The hardware setup, including the (Raspberry Pi 3 and the Tiny RTC i2C modules DS1307 + TC74 is shown below:
+The hardware setup, including the Raspberry Pi 3 + the Tiny RTC i2C modules DS1307 + the TC74 temperature sensor is shown below:
 ![Hardware setup](img/fig04.png)
 
-In your project, the Raspberry Pi must be able to communicate with booth devices. You can install the i2c tools to test whether the modules are fully loaded. To install the tools to communicate with i2c devices in Python (python-smbus) and diagnostic tools (i2c-tools).
+In your project, the Raspberry Pi must be able to communicate with both devices through the I2C protocol. To install the Python tools that allow I2C communication between the Raspberry Pi and hooked devices, as well as diagnostic tools, follow the next procedure:
 ```
 $ sudo apt-get install -y python-smbus i2c-tools
 ```
 Once the installation is complete, you can already test whether the modules are fully loaded:
 ```
 $ lsmod | grep i2c_
+i2c_bcm2835		16384 0
+i2c_bcm2708		16384 0
 ```
 For test the connection and find out the device address on the i2c bus, you can execute on the terminal next command:
 ```
