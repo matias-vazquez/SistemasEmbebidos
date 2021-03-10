@@ -4,8 +4,18 @@
 1. To transmit data through a I2C bus using the Raspbian terminal.
 2. To implement a bus architecture using the I2C serial protocol with two sensors: a Real Time Clock (RTC) and Thermometer.
 
-## Pre-lab (Setup)
-1. Open the Terminal and enable the I2C port and the Device Tree:
+## Pre-lab
+### Research
+1. Describe the I2C standard protocol. Include different aspects such as transfer speeds, handshake sequence, and a brief explanation of the two wires used for data transfer (SDA & SCL).
+
+2. Identify the I2C Addresses of the following sensors (do not confuse with internal register address):
+   * Real Time Clock (RTC) Module [[DS1338](https://datasheets.maximintegrated.com/en/ds/DS1307.pdf)]
+   * Temperature Serial Sensor [[TC74](https://ww1.microchip.com/downloads/en/DeviceDoc/21462D.pdf)]
+
+3. Draw a simple block diagram of the hardware setup for the I2C topology, including the RPi (*master*), the DS1338 (*slave*), and the TC74 (*slave*). Also, include the Bidirectional Logic Level Converter (remember that the RPi works with 3.3V and the optimal voltage for the sensors is 5V).
+
+### RPi Configuration
+1. Open the Terminal and enable the I2C port:
 ```
 $ sudo raspi-config
 ```
@@ -84,7 +94,7 @@ Both, the TC74 (check out the datasheet at https://ww1.microchip.com/downloads/e
 
 Display the collected data on the terminal and log it in, in a .txt file. The logged data should follow the format showed below:
 ```
-RECEIVER> Temperature: 24°C
+RECEIVER> Temperature: 24ï¿½C
 RECEIVER> Record 1: 12/09/18 Sat 08:55:44 PM
 RECEIVER> Record 2: 12/09/18 Sat 09:01:35 PM
 RECEIVER> Record 3: 12/09/18 Sat 09:08:20 PM
