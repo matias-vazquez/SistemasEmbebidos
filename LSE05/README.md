@@ -11,11 +11,11 @@ $ sudo raspi-config
 ```
    * Go to *Interfacing Options* 
 
-![Interfacing options screen] (img/fig01.png)
+![Interfacing options screen](img/fig01.png)
 
    * and enable **P5 I2C**
 
-![I2C enabling screen] (img/fig02.png)
+![I2C enabling screen](img/fig02.png)
 
 2. Then, restart the Raspberry Pi:
 ```
@@ -41,8 +41,6 @@ $ make
 $ sudo make check
 $ sudo make install
 ```
-
-
 $ sudo raspi-config
 ```
   - Choose option (5) Interfacing Options:
@@ -71,7 +69,7 @@ $ sudo i2cdetect -y 1
 ```
 If everything goes well you must see on terminal something like:
 
-![1i2 detect screen] (img/fig03.png)
+![1i2 detect screen](img/fig03.png)
 
 Report all the required steps and the printout of each step. 
 
