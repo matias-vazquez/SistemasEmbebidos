@@ -57,28 +57,27 @@ $ lsmod | grep i2c_
 i2c_bcm2835		16384 0
 i2c_bcm2708		16384 0
 ```
-For test the connection and find out the device address on the i2c bus, you can execute on the terminal next command:
+You need the module i2c_bcm2708 (or i2c_bcm2835 on the Raspberry Pi Zero W). If you see the either modules, they are correctly loaded. To test the connections and find out the devices address on the i2c bus, execute:
 ```
 $ sudo i2cdetect -y 1
 ```
-If everything goes well you must see on terminal something like:
+If everything goes well, you must see on something like:
 
 ![1i2 detect screen](img/fig03.png)
 
-Report all the required steps and the printout of each step. 
+**Report all the required steps and the printout of each step.**
 
-Inside the folder bcm2835, you should find the examples folder with the code for the I2C. Go there from Terminal and compile it (you will need files bcm2835.c and bcm2835.h on this folder; you may acquire them from the src folder). Here is a hint:
+Inside the folder bcm2835, go to the I2C example following the route *bcm2835-1.58/examples/i2c/*. Compile it (you will need files bcm2835.c and bcm2835.h on this folder; you may acquire them from the *src* folder). Here is a hint:
 ```
-$ gcc -o i2c i2c.c bcm2835.c
+$ gcc -o i2c i2c.c ../../bcm2835.c
 ```
-Identify the following code sections in the I2C.c file. Report these findings in your report document.
-
+Identify the corresponding code sections in I2C.c (the full source code can be also found at http://www.airspayce.com/mikem/bcm2835/i2c_8c-example.html) and answer the following:
 1. How to begin the transfer?
 2. How to set the address of the slave?
 3. How to define read write operations?
 4. What is the meaning of  dlen ?
 
-Try to run this program and obtain the data of seconds, minutes and hours from the RTC (you can review the DS1307 data sheet from this link). Display this info at the terminal. Your program should also set the current date and time onto the RTC. Demonstrate to your professor.  Demonstrate how to read individually each location? of the RTC (seconds, minutes, etc.) by adjusting the RTC internal pointer. Document the commands and show print screens. Also show how to read all the memory locations at once? using the commands. Show the commands and print screens.
+Run the program and obtain the data of seconds, minutes and hours from the RTC (you can review the DS1307 datasheet from https://datasheets.maximintegrated.com/en/ds/DS1307.pdf). Display this info on the terminal. Your program should also set the current date and time onto the RTC. Demonstrate to your professor.  Demonstrate how to read individually each location? of the RTC (seconds, minutes, etc.) by adjusting the RTC internal pointer. Document the commands and show print screens. Also show how to read all the memory locations at once? using the commands. Show the commands and print screens.
 
 ### Bus Topology
 Both, the TC74 (check out the datasheet at https://ww1.microchip.com/downloads/en/DeviceDoc/21462D.pdf) and the RTC should be hooked up to the same I2C bus and must work as Slaves; the Raspberry Pi should be setup as Master. Report your files with the final code. Report the commands to build and execute the program. Report printouts illustrating the correct operation of your program. Demonstrate to the professor your program working correctly.
