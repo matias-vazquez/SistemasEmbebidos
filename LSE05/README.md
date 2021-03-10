@@ -71,13 +71,13 @@ Inside the folder bcm2835, go to the I2C example following the route *bcm2835-1.
 ```
 $ gcc -o i2c i2c.c ../../bcm2835.c
 ```
-Identify the corresponding code sections in I2C.c (the full source code can be also found at http://www.airspayce.com/mikem/bcm2835/i2c_8c-example.html) and answer the following:
+Identify the corresponding code sections in i2c.c (the full source code can be also found at http://www.airspayce.com/mikem/bcm2835/i2c_8c-example.html) and answer the following:
 1. How to begin the transfer?
 2. How to set the address of the slave?
 3. How to define read write operations?
 4. What is the meaning of  dlen ?
 
-Run the program and obtain the data of seconds, minutes and hours from the RTC (you can review the DS1307 datasheet from https://datasheets.maximintegrated.com/en/ds/DS1307.pdf). Display this info on the terminal. Your program should also set the current date and time onto the RTC. Demonstrate to your professor.  Demonstrate how to read individually each location? of the RTC (seconds, minutes, etc.) by adjusting the RTC internal pointer. Document the commands and show print screens. Also show how to read all the memory locations at once? using the commands. Show the commands and print screens.
+Run the program and obtain the data of seconds, minutes and hours from the RTC (you can review the DS1307 datasheet from https://datasheets.maximintegrated.com/en/ds/DS1307.pdf), and display the data on the terminal. Your program should also set the current date and time onto the RTC. Demonstrate how to read individually each location of the RTC (seconds, minutes, etc.) by adjusting the RTC internal pointer. Document the commands and show print screens. Also show how to read all the memory locations at once using the commands. Show the commands and printscreens.
 
 ### Bus Topology
 Both, the TC74 (check out the datasheet at https://ww1.microchip.com/downloads/en/DeviceDoc/21462D.pdf) and the RTC should be hooked up to the same I2C bus and must work as Slaves; the Raspberry Pi should be setup as Master. Report your files with the final code. Report the commands to build and execute the program. Report printouts illustrating the correct operation of your program. Demonstrate to the professor your program working correctly.
