@@ -1,3 +1,6 @@
 *.docx
 *.md~
 *.md#
+*.c~
+LSE05.c
+
