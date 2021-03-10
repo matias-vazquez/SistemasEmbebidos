@@ -41,15 +41,6 @@ $ make
 $ sudo make check
 $ sudo make install
 ```
-$ sudo raspi-config
-```
-  - Choose option (5) Interfacing Options:
-  - Then in the list, select option (P5) I2C. Activate by selecting YES.
-  - It is necessary to restart the Raspberry Pi to take the change into account.
-  ```
-  $ sudo reboot
-  ```
-  - Then, try again step 5.
 
 ## Lab work
 ### Hardware and Fire Test
