@@ -4,12 +4,12 @@
 1. To transmit data through a I2C bus using the Raspbian terminal.
 2. To implement a bus architecture using the I2C serial protocol with two sensors: a Real Time Clock (RTC) and Thermometer.
 
-## Pre-lab (Installation)
+## Pre-lab (Setup)
 1. Open the RXTerminal and install the **NTPdate** utility by typing in the following command:
 ```
-$sudo apt-get install build-essential manpages-dev ntpdate
+$ sudo apt-get install build-essential manpages-dev ntpdate
 ```
-2. Download the main library package:
+2. Download the C library for Broadcom BCM 2835 microprocessor (detailed info at http://www.airspayce.com/mikem/bcm2835):
 ```
 $ wget "http://www.airspayce.com/mikem/bcm2835/bcm2835-1.58.tar.gz"
 ```
@@ -42,7 +42,8 @@ $ sudo raspi-config
   ```
   - Then, try again step 5.
 
-## Lab work 1 (Hardware and Fire Test)
+## Lab work
+### Hardware and Fire Test
 Investigate the hardware arrangements (Raspberry Pi 3 + Tiny RTC i2C modules DS1307 + TC74). Report the final schematic.
 
 In your project, the Raspberry Pi must be able to communicate with booth devices. You can install the i2c tools to test whether the modules are fully loaded. To install the tools to communicate with i2c devices in Python (python-smbus) and diagnostic tools (i2c-tools).
@@ -74,7 +75,7 @@ Identify the following code sections in the I2C.c file. Report these findings in
 
 Try to run this program and obtain the data of seconds, minutes and hours from the RTC (you can review the DS1307 data sheet from this link). Display this info at the terminal. Your program should also set the current date and time onto the RTC. Demonstrate to your professor.  Demonstrate how to read individually each location? of the RTC (seconds, minutes, etc.) by adjusting the RTC internal pointer. Document the commands and show print screens. Also show how to read all the memory locations at once? using the commands. Show the commands and print screens.
 
-## Lab work 2 (Bus topology) 
+### Bus Topology
 Both, the TC74 (check out the datasheet at https://ww1.microchip.com/downloads/en/DeviceDoc/21462D.pdf) and the RTC should be hooked up to the same I2C bus and must work as Slaves; the Raspberry Pi should be setup as Master. Report your files with the final code. Report the commands to build and execute the program. Report printouts illustrating the correct operation of your program. Demonstrate to the professor your program working correctly.
 
 Display the collected data on the terminal and log it in, in a .txt file. The logged data should follow the format showed below:
