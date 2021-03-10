@@ -45,7 +45,7 @@ $ sudo make install
 ## Lab work
 ### Hardware and Fire Test
 The hardware setup, including the (Raspberry Pi 3 and the Tiny RTC i2C modules DS1307 + TC74 is shown below:
-![Hardware setup](ima/fig04.png)
+![Hardware setup](img/fig04.png)
 
 In your project, the Raspberry Pi must be able to communicate with booth devices. You can install the i2c tools to test whether the modules are fully loaded. To install the tools to communicate with i2c devices in Python (python-smbus) and diagnostic tools (i2c-tools).
 ```
