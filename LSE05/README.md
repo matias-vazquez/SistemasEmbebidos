@@ -85,16 +85,16 @@ Inside folder *bcm2835*, go to the I<sup>2</sup>C example following the route *b
 ```
 $ gcc -o i2c i2c.c ../../src/bcm2835.c
 ```
-Identify the corresponding code sections in *i2c.c* (the full source code can be also found at http://www.airspayce.com/mikem/bcm2835/i2c_8c-example.html) and answer the following:
+Run the executable program and obtain the data of seconds, minutes and hours from the RTC, and display it on the terminal ([detailed info in the datasheet](https://datasheets.maximintegrated.com/en/ds/DS1307.pdf)). Your program should also set the current date and time onto the RTC. Demonstrate how to read individually each location of the RTC (seconds, minutes, etc.) by adjusting the RTC internal pointer. Log in the commands and take screenshots of your outputs. Finally, show how to read all the memory locations at once using terminal commands; show the commands and take screenshots of the outcomes.
+
+Finally, identify the corresponding code sections in *i2c.c* (the full source code can be also found at http://www.airspayce.com/mikem/bcm2835/i2c_8c-example.html) and answer the following:
 
 1. How to begin a transfer?
 2. How to set the address of the slave?
 3. How to define read/write operations?
-4. What is the meaning of *dlen* ?
+4. What is the meaning of the *len* parameter?
 
 ### Part II. Bus Topology
-Backup the *i2c.c* file and modify the code to obtain the data of seconds, minutes and hours from the RTC, and display it on the terminal. Your program should also set the current date and time onto the RTC. Demonstrate how to read individually each location of the RTC (seconds, minutes, etc.) by adjusting the RTC internal pointer. Log in the commands and take screenshots of your outputs. Finally, show how to read all the memory locations at once using terminal commands; show the commands and take screenshots of the outcomes.
-
 Both, the TC74 and the RTC should be hooked up to the same I<sup>2</sup>C bus and must work as *slaves*; the Raspberry Pi should be set as *master*. Report your files with the final code. Report the commands to build and execute the program. Report printouts illustrating the correct operation of your program. Demonstrate to the professor your program working correctly.
 
 Display the collected data on the terminal and log it in, in a .txt file. The logged data should follow the format showed below:
