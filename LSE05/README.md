@@ -95,15 +95,17 @@ Finally, identify the corresponding code sections in *i2c.c* (the full source co
 4. What is the meaning of the *len* parameter?
 
 ### Part II. Bus Topology
-Both, the TC74 and the RTC should be hooked up to the same I<sup>2</sup>C bus and must work as *slaves*; the Raspberry Pi should be set as *master*. Report your files with the final code. Report the commands to build and execute the program. Report printouts illustrating the correct operation of your program. Demonstrate to the professor your program working correctly.
-
-Display the collected data on the terminal and log it in, in a .txt file. The logged data should follow the format showed below:
+Write a program that displays in the terminal and logs in a text file the current temperature from the TC74, and records the date and time each time the temperature exceeds 30°C. Display the data using the following format:
 ```
 RECEIVER> Temperature: 24°C
 RECEIVER> Record 1: 12/09/18 Sat 08:55:44 PM
 RECEIVER> Record 2: 12/09/18 Sat 09:01:35 PM
 RECEIVER> Record 3: 12/09/18 Sat 09:08:20 PM
 ```
+Both, the TC74 and the RTC, should be hooked up to the same I<sup>2</sup>C bus and must work as *slaves*; the Raspberry Pi has to be set as *master*. 
+
+Display the collected data on the terminal and log it in, in a .txt file. The logged data should follow the format showed below:
+
 Consider the following requirements:
 * The recording table can only contain the 3 more recent events.
 * These records must be initialized with the following date:
@@ -112,3 +114,9 @@ Consider the following requirements:
 ```
 * If all the records are used, you must replace the oldest with the new one.
 * You should report the temperature and the records every 10 seconds. 
+
+## Report 
+1. 
+2. Link to your GitHub repository containing the codes for Lab work, parts I and II.
+3. Report the commands to build and execute the program in C writen in Part II.
+4. Report printouts illustrating the correct operation of your program.
