@@ -1,4 +1,4 @@
-# I<sup>2</sup>C Interfacing with C (draft)
+# I<sup>2</sup>C Interfacing with C
 
 ## Objectives
 1. To transmit data through a I<sup>2</sup>C bus using the Raspbian terminal.
@@ -87,7 +87,7 @@ $ gcc -o i2c i2c.c ../../src/bcm2835.c
 ```
 Run the executable program and obtain the data of seconds, minutes and hours from the RTC, and display it on the terminal ([detailed info in the datasheet](https://datasheets.maximintegrated.com/en/ds/DS1307.pdf)). Your program should also set the current date and time onto the RTC. Demonstrate how to read individually each location of the RTC (seconds, minutes, etc.) by adjusting the RTC internal pointer. Log in the commands and take screenshots of your outputs. Finally, show how to read all the memory locations at once using terminal commands; show the commands and take screenshots of the outcomes.
 
-Finally, identify the corresponding code sections in *i2c.c* (the full source code can be also found at http://www.airspayce.com/mikem/bcm2835/i2c_8c-example.html) and answer the following:
+Finally, identify the corresponding code sections in *i2c.c* (the full source code can be also found [here](http://www.airspayce.com/mikem/bcm2835/i2c_8c-example.html)), and answer the following:
 
 1. How to begin a transfer?
 2. How to set the address of the slave?
