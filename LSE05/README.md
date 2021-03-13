@@ -26,11 +26,15 @@ $ sudo raspi-config
 ```
    * Go to *Interfacing Options* 
 
-![Interfacing options screen](img/fig01.png)
+<p align="center">
+  <img src="img/fig01.png">
+</p>
 
    * and enable **P5 I2C**
 
-![I2C enabling screen](img/fig02.png)
+<p align="center">
+  <img src="img/fig02.png">
+</p>
 
 2. Then, restart the RPi:
 ```
@@ -60,7 +64,9 @@ $ sudo make install
 ### Part I. Hardware and Fire Test
 1. The hardware setup, including the Raspberry Pi 3 + the Tiny RTC I<sup>2</sup>C modules DS1307 is shown below (TC74 temperature sensor not shown):
 
-![Hardware setup](img/fig04.png)
+<p align="center">
+  <img src="img/fig04.png">
+</p>
 
 2. In your project, the Raspberry Pi must be able to communicate with both devices through the I<sup>2</sup>C protocol. Install the Python tools that allow I<sup>2</sup>C communications between the Raspberry Pi and hooked devices, as well as diagnostic tools:
 ```
@@ -78,7 +84,9 @@ $ sudo i2cdetect -y 1
 ```
 If everything goes well, you must see similar to the next figure:
 
-![1i2 detect screen](img/fig03.png)
+<p align="center">
+  <img src="img/fig03.png">
+</p>
 
 Three device' addresses have to be seen in the address map: RPi -> 0x50, TC74 -> 0x4D, and DS1338 -> 0x68. 
 
@@ -88,7 +96,9 @@ i2cdump -y 1 0x68
 ```
 Figure below shows the register content for the DS1338 right after been powered on: 
 
-![1i2 detect screen](img/fig05.png)
+<p align="center">
+  <img src="img/fig05.png">
+</p>
 
 As you write data to the devices' registers. you should be able to track the changes from he register map.
 
