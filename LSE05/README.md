@@ -100,7 +100,7 @@ Figure below shows the register content for the DS1338 right after been powered 
   <img src="img/fig05.png">
 </p>
 
-As you write data to the devices' registers. you should be able to track the changes from he register map.
+As you write data to the devices' registers. you should be able to track changes from the register map.
 
 5. Inside folder *bcm2835*, go to the I<sup>2</sup>C example following the route *bcm2835-1.58/examples/i2c/* and compile the code (you will need files *bcm2835.c* and *bcm2835.h* on this folder; you may acquire them from the *src* folder). Here is a hint:
 ```
