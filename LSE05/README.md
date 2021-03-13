@@ -1,3 +1,6 @@
+
+<p align="right">Last update: Mar 13, 2021</a></p>
+
 # I<sup>2</sup>C Interfacing with C
 
 ## Objectives
@@ -77,11 +80,23 @@ If everything goes well, you must see similar to the next figure:
 
 ![1i2 detect screen](img/fig03.png)
 
+Three device' addresses have to be seen in the address map: RPi -> 0x50, TC74 -> 0x4D, and DS1338 -> 0x68. 
+
+5. Examine the register map of an specific device using ```i2cdump -y 1 [i2c device address]```. As an example, to see the register map of the RTC:
+```
+i2cdump -y 1 0x68
+```
+Figure below shows the register content for the DS1338 right after been powered on: 
+
+![1i2 detect screen](img/fig05.png)
+
+As you write data to the devices' registers. you should be able to track the changes from he register map.
+
 5. Inside folder *bcm2835*, go to the I<sup>2</sup>C example following the route *bcm2835-1.58/examples/i2c/* and compile the code (you will need files *bcm2835.c* and *bcm2835.h* on this folder; you may acquire them from the *src* folder). Here is a hint:
 ```
 $ gcc -o i2c i2c.c ../../src/bcm2835.c
 ```
-6. Run the executable program and obtain the data of seconds, minutes and hours from the RTC, and display it on the terminal ([detailed info in the datasheet](https://datasheets.maximintegrated.com/en/ds/DS1307.pdf)). Your program should also set the current date and time onto the RTC. Demonstrate how to read individually each location of the RTC (seconds, minutes, etc.) by adjusting the RTC internal pointer. Log in the commands and take screenshots of your outputs. Finally, show how to read all the memory locations at once using terminal commands; show the commands and take screenshots of the outcomes.
+6. Run the executable program and obtain the data of seconds, minutes and hours from the RTC, and display it on the terminal ([detailed info in the datasheet](https://datasheets.maximintegrated.com/en/ds/DS1307.pdf)). Keep in ming that the devices' address must be sent in **decimal notation**. Your program should also set the current date and time onto the RTC. Demonstrate how to read individually each location of the RTC (seconds, minutes, etc.) by adjusting the RTC internal pointer. Log in the commands and take screenshots of your outputs. Finally, show how to read all the memory locations at once using terminal commands; show the commands and take screenshots of the outcomes.
 
 7. Finally, identify the corresponding code sections in *i2c.c* (the full source code can be also found [here](http://www.airspayce.com/mikem/bcm2835/i2c_8c-example.html)), and answer the following:
 
