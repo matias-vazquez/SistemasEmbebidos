@@ -62,10 +62,10 @@ $ sudo make install
 ```
 ## Lab work
 ### Part I. Hardware and Fire Test
-1. The hardware setup, including the Raspberry Pi 3 + the Tiny RTC I<sup>2</sup>C modules DS1307 is shown below (TC74 temperature sensor not shown):
+1. The hardware setup, including Raspberry Pi 3 + Tiny RTC I<sup>2</sup>C module DS1307 + temperature sensor TC74:
 
 <p align="center">
-  <img src="img/fig04.png">
+  <img  width="600" src="img/fig04.png">
 </p>
 
 2. In your project, the Raspberry Pi must be able to communicate with both devices through the I<sup>2</sup>C protocol. Install the Python tools that allow I<sup>2</sup>C communications between the Raspberry Pi and hooked devices, as well as diagnostic tools:
