@@ -65,7 +65,7 @@ $ sudo make install
 1. The hardware setup, including Raspberry Pi 3 + Tiny RTC I<sup>2</sup>C module DS1307 + temperature sensor TC74:
 
 <p align="center">
-  <img  width="600" src="img/fig04.png">
+  <img  width="750" src="img/fig04.png">
 </p>
 
 2. In your project, the Raspberry Pi must be able to communicate with both devices through the I<sup>2</sup>C protocol. Install the Python tools that allow I<sup>2</sup>C communications between the Raspberry Pi and hooked devices, as well as diagnostic tools:
