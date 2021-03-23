@@ -123,7 +123,7 @@ int main(void) {
         	…
         	…
 ```
-3. Create a new project in Atmel Studio and copy the example code; then, complete the code...
+3. Create a new project in Atmel Studio and copy the example code; then, complete the code. [You can follow this video as a reference](https://www.youtube.com/watch?v=bRNIte8wvJw).
 
    a) Open a project in ATMEL Studio
       1. Select the GCC C Executable version
@@ -133,16 +133,12 @@ int main(void) {
 
       2. Select the ```ATSAMD21G18A``` device.
 	  <p align="center">
-  		<img src="img/atmel_studio_02.png">
+  		<img src="img/atmel_studio_02.PNG">
 	  </p>
 
       3. Double click the application *main.c* file at the _**Solution Explorer_**. The text editor will become open and you are ready to write the code. Open a C file and start coding.
 
-
-
-4.	Share your code written in C language and the program working correctly with the professor. Remember to write the code using functions, e.g. a function to initialize the timer. Add the image of the generated waveform.
-
-5.	Explain the section of the code where the “polling operation” is taking place.
+4.	Share your code written in C language and the program working correctly with the professor. Remember to write the code using functions, e.g. a function to initialize the timer. Add the image of the generated waveform. Include an explanation of the code section where the *polling operation* takes place.
 
 ## Part II. Interfacing the RTC through I<sup>2</sup>C
 Get a copy of the [rtc_i2c.c](https://github.com/matias-vazquez/SistemasEmbebidos/blob/main/LSE06/rtc_i2c.c) code.
