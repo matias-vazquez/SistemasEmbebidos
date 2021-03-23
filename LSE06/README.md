@@ -193,27 +193,17 @@ I<sup>2</sup>C (structure, defines, unions)  | C:\Program Files (x86)\Atmel\Stud
 
     3. Report the schematic diagram between the Arduino Zero and the FTDI.
 
-    4. Open the setup of a serial communication on this software go to “Serial” under “Connection”.
-<p align="center">
-  <img src="img/putty_01.png">
-</p>
+    4. Open the setup of a serial communication on this software go to “Serial” under “Connection” and configure the following parameters:
+    <p align="center">
+    <img src="img/putty_01.png">
+    </p>
 
-    5. Configure the following parameters.
-<p align="center">
-  <img src="img/putty_02.png">
-</p>
+    6. Go back to session, select _**Serial**_ connection type and click _Open_.
+    <p align="center">
+    <img src="img/putty_02.png">
+    </p>
 
-    6. Go back to session.
-<p align="center">
-  <img src="img/putty_03.png">
-</p>
-
-    7. Select “Serial” and click on “Open”.
-<p align="center">
-  <img src="img/putty_04.png">
-</p>
-
-    8. Add a “Hello World” printf to the program and run the program (using the debugger) to demonstrate to the professor that the information is being displayed on the Terminal. Add an image of the terminal with the “Hello World”.
+    7. Add a “Hello World” printf to the program and run the program (using the debugger) to demonstrate to the professor that the information is being displayed on the Terminal. Add an image of the terminal with the “Hello World”.
 
 7. Using C language unions and structures, define structures to access/manipulate the information of the RTC. These structures/unions should be located at the “RTCControl.h” file. Report your .h file with comments.
 
