@@ -14,10 +14,9 @@ Qty | Material
 :---: | :---
 1  | Arduino Zero
 1  | Micro-USB cable
+1  | Mini-USB cable
 1  | Real Time Clock
-1  | Oscilloscope (serial communications-capable)
 1  | FTDIO for serial communications
-1  | Miniusb cable
  As required  | Wiring cables (male to female pin header cables)
 
  | Software
@@ -128,16 +127,18 @@ int main(void) {
 
    a) Open a project in ATMEL Studio
       1. Select the GCC C Executable version
+	  <p align="center">
+  		<img src="img/atmel_studio_01.png">
+	  </p>
 
-      2. Change the GCCApplicationX  name to your prefered name.
+      2. Select the ```ATSAMD21G18A``` device.
+	  <p align="center">
+  		<img src="img/atmel_studio_02.png">
+	  </p>
 
-      3. Double click at the application main.c file at the “Solution Explorer. The text editor will become open and you are ready to write the code. 
-      
-      4. Open a C file and start coding.
+      3. Double click the application *main.c* file at the _**Solution Explorer_**. The text editor will become open and you are ready to write the code. Open a C file and start coding.
 
-<p align="center">
-  <img src="img/atmel_studio_01.png">
-</p>
+
 
 4.	Share your code written in C language and the program working correctly with the professor. Remember to write the code using functions, e.g. a function to initialize the timer. Add the image of the generated waveform.
 
