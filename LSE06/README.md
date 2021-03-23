@@ -144,7 +144,7 @@ int main(void) {
 5.	Explain the section of the code where the “polling operation” is taking place.
 
 ## Part II. Interfacing the RTC through I<sup>2</sup>C
-Get a copy of the *rtc_i2c.c* code.
+Get a copy of the [rtc_i2c.c](https://github.com/matias-vazquez/SistemasEmbebidos/blob/main/LSE06/rtc_i2c.c) code.
 
 1. Using the datasheet of the SAMD21 microcontroller, explain the procedure to configure the i2c peripheral. List the different microcontroller registers, the values assigned to each register and the corresponding configuration. Draw an activity diagram with the configuration procedure.
 
