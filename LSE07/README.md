@@ -117,7 +117,7 @@ void spiInit( void ) {
 [![Generic badge](https://img.shields.io/badge/SAMD21-Datasheet-orange.svg)](https://drive.google.com/file/d/1ioVVR1NGN9EGv17DAQoz2EE7NLV9ePyL/view?usp=sharing)
 </div>
 
-6. Draw and report a flow chart of the initialization process for the SPI. [![Generic badge](https://img.shields.io/badge/WRITTEN-REPORT-red.svg)]()
+6. Draw and report a flow chart of the initialization process for the SPI. 
 
 7. Add the remain following code to your _spi.c_ file:
 ```c
@@ -134,7 +134,7 @@ uint8_t spiSend( uint8_t data ) {
 ```
 8. Continue replacing the unknown `??` values for function `spiSend()`. 
 
-9. Draw and report a flow chart indicating the steps to send values with this function. [![Generic badge](https://img.shields.io/badge/WRITTEN-REPORT-red.svg)]()
+9. Draw and report a flow chart indicating the steps to send values with this function. 
 
 10. Capture the following code in your main program.
 ```c
@@ -152,7 +152,7 @@ int main(void)
    	}
 }
 ```
-11. Share your C code (remember to write the code using functions). Add an oscilloscope image of the generated SPI signal over the `MOSI` and `SS` channels. Justify the observed waveform. Was the signal observed on the oscilloscope the expected waveform? [![Generic badge](https://img.shields.io/badge/WRITTEN-REPORT-red.svg)]()
+11. Share your C code (remember to write the code using functions). Add an oscilloscope image of the generated SPI signal over the `MOSI` and `SS` channels. Justify the observed waveform. Was the signal observed on the oscilloscope the expected waveform?
 
 12. Add _myprint.h_ and _myprint.c_ files to the project. Create and define the content of the _uart.c_ and _uart.h_ files. These files should have the code needed to configure the UART port to be used by `myprintf()` function to display data at the terminal. Report and demonstrate your working code. 
 
@@ -194,13 +194,10 @@ const uint8_t CMD00[SIZE_SD_CMD] = {0x40, 0x00, 0x00, 0x00, 0x00, 0x95};
 
 This is the `reset` command, which puts the SD card into the SPI mode if executed when the `CS/SS` line is low. 
 
-The SD card will respond to the `reset` command by sending a basic 8-bit response through the MISO line. The structure of this response is shown in the figure below. The first bit is always `0`, while the rest specify any errors that may have occurred while processing the last message. If the command you sent was successfully received, you will receive the message `0000 0001`.
+The SD card will respond to the `reset` command by sending a basic 8-bit response through the MISO line. The structure of this response is shown in the figure below. Depending upon the command, there are different responses. The specification is calling them R1, R3 or R7. There are more possible responses, but these are the most important. The first bit is always `0`, while the rest specify any errors that may have occurred while processing the last message. If the command you sent was successfully received, you will receive the message `0000 0001`.
 
-<div>
-	<figure align=center>
-    	<img width="600" src="img/command_responses.png">
-    	<figcaption><b>Responses to commands.</b> Depending upon the command, there are different responses. The specification is calling them R1, R3 or R7. There are more possible responses, but these are the most important.</figcaption>
-	</figure>
+<div align="center">
+<img width="600" src="img/command_responses.png">
 </div>
 
 To receive this message, your program should continuously toggle the `SD CLK` signal and watch the `MISO` line for data, while keeping the `MOSI` line high and `CS` line low. 
@@ -423,30 +420,30 @@ Turn in a technical report that includes the following information:
 3. Elaboration on the key elements of the laboratory listed below (also marked throughout the lab procedure):
 
 __Part I__
-- [ ] Flowchart illustrating the initializing process for the SPI
-- [ ] Flowchart illustrating the process to send values using `spiSend()` in _spi.c_
-- [ ] Image of the generated SPI signal over the `MOSI` and `SS` lines, including justification of the observed waveform. Was the signal observed on the oscilloscope the expected waveform?
+- [x] Flowchart illustrating the initializing process for the SPI
+- [x] Flowchart illustrating the process to send values using `spiSend()` in _spi.c_
+- [x] Image of the generated SPI signal over the `MOSI` and `SS` lines, including justification of the observed waveform. Was the signal observed on the oscilloscope the expected waveform?
 
 __Part II__
-- [ ] Flowchart of the process to send commands to the SD card in the `spiXchg()` function
-- [ ] Flowchart of the process to receive responses from the SD card in the `spiXchg()` function
-- [ ] Interpretation of responses received from the SD card by sending commands __CMD00__ and __CMD08__.
-- [ ] Answers to questions:
+- [x] Flowchart of the process to send commands to the SD card in the `spiXchg()` function
+- [x] Flowchart of the process to receive responses from the SD card in the `spiXchg()` function
+- [x] Interpretation of responses received from the SD card by sending commands __CMD00__ and __CMD08__.
+- [x] Answers to questions:
     1.	When sending each byte of the command, what is the value being received from the SD?
     2.	When receiving the response from the SD, what is the value being sent to the SD?
 
 __Part III__
-- [ ] What is the purpose of the `initCycles()` function?
-- [ ] Modifications to the main program to additionally send commands __CMD55__ and __CMD41__. 
+- [x] What is the purpose of the `initCycles()` function?
+- [x] Modifications to the main program to additionally send commands __CMD55__ and __CMD41__. 
 
 __Part IV__
-- [ ] Flowchart of the process to send commands to the SD card in function `rcvr_datablock()`.
-- [ ] Answer to the following questions:
+- [x] Flowchart of the process to send commands to the SD card in function `rcvr_datablock()`.
+- [x] Answer to the following questions:
    1. What arguments of the function are related to this part of the code? What information are these arguments providing?
    2. Explain how the __CMD17__ command argument is being passed to the SD. What is this argument for?
-- [ ] Flowchart of the process to receive response from the SD card in function `rcvr_datablock()`.
+- [x] Flowchart of the process to receive response from the SD card in function `rcvr_datablock()`.
    1. What arguments of the `rcvr_datablock()` function are related to this part of the code? 
    2. What information are these arguments providing?
-- [ ] Interpretation of the response received from the SD card by reading the first 512-byte block of the card. 
-- [ ] Content of the memory locations of the first 512-byte block of the SD card
+- [x] Interpretation of the response received from the SD card by reading the first 512-byte block of the card. 
+- [x] Content of the memory locations of the first 512-byte block of the SD card
 
