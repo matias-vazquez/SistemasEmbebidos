@@ -5,13 +5,18 @@
 # Laboratory 7. SPI and SD Interfacing with Arduino Zero (draft)
 
 ## **Introduction**
-This lab provides you the opportunity to learn how to develop embedded software applications by following the steps and practices commonly used in industry. In this lab, you will learn to write C language code using the header files and source files provided by ATMEL. You will also develop your own header and source files to access and manipulate a SD shield. This lab will also provide you the opportunity to strengthen your knowledge about the SPI protocol by programming an interface to the SD shield and by observing and measuring the SPI signals using the oscilloscope. 
+In this lab, you will write C code using the header and source files provided by ATMEL. You will also develop your own header and source files to access and manipulate an Arduino SD shield. With this lab you have the chance to strengthen your knowledge on the SPI protocol by programming an interface to the SD shield and by monitoring and measuring SPI signals with the oscilloscope. 
+
+<div align="center">
+
+[![Generic badge](https://img.shields.io/badge/What_is-SPI%3F-orange.svg)](https://www.digikey.com.mx/es/articles/why-how-to-use-serial-peripheral-interface-simplify-connections-between-multiple-devices)
+</div>
 
 ### Objectives
-* Strengthen your knowledge and abilities about C programming and serial communication protocols, specifically SPI. 
-* Learn how to write programs using the SPI protocol to interface to an SD card.
+* Strengthen your knowledge and abilities about C programming and serial communication protocols, particularly, SPI. 
+* Learn how to write programs using the SPI protocol to interface an SD card.
 
-### Materials and software
+### Materials
 <div align="center">
 
 Qty | Material
@@ -26,7 +31,7 @@ Qty | Material
 
 </div>
 
-Alongside, you will need serial communications tools such as _myprintf_, _uart.c_ and _uart.h_; Microchip Studio and PuTTy.
+Alongside, you will need serial communications tools such as _myprintf_, _uart.c_ and _uart.h_; Microchip Studio and PuTTY.
 
 ## **Procedure**
 
@@ -38,7 +43,7 @@ Alongside, you will need serial communications tools such as _myprintf_, _uart.c
 <img src="img/arduino_connection.png">
 </div>
 
-2. Create a new *GCC C Executable* project on Microchip Studio for the __ATSAMD21G18A__ &mu;Controller.
+2. Create a new *GCC C Executable* project in Microchip Studio for the __ATSAMD21G18A__ &mu;Controller.
 
 3. Create the header file _spi.h_, and paste in the following code listing:
 ```c
@@ -107,7 +112,12 @@ void spiInit( void ) {
 ```
 5. Read pages 478-510 of the SAMD21 datasheet to find out undefined `??` values in the code above, and replace them with their respective values. 
 
-6. Draw and report a flow chart of the initialization process for the SPI.
+<div align="center">
+
+[![Generic badge](https://img.shields.io/badge/SAMD21-Datasheet-orange.svg)](https://drive.google.com/file/d/1ioVVR1NGN9EGv17DAQoz2EE7NLV9ePyL/view?usp=sharing)
+</div>
+
+6. Draw and report a flow chart of the initialization process for the SPI. [![Generic badge](https://img.shields.io/badge/WRITTEN-REPORT-red.svg)]()
 
 7. Add the remain following code to your _spi.c_ file:
 ```c
@@ -124,7 +134,7 @@ uint8_t spiSend( uint8_t data ) {
 ```
 8. Continue replacing the unknown `??` values for function `spiSend()`. 
 
-9. Draw and report a flow chart indicating the steps to send values with this function.
+9. Draw and report a flow chart indicating the steps to send values with this function. [![Generic badge](https://img.shields.io/badge/WRITTEN-REPORT-red.svg)]()
 
 10. Capture the following code in your main program.
 ```c
@@ -142,11 +152,12 @@ int main(void)
    	}
 }
 ```
-11. Share your C code. Remember to write the code using functions. Add an image of the generated SPI signal over the `MOSI` and `SS` channels. Justify the observed waveform. Was the signal observed on the oscilloscope the expected waveform?
+11. Share your C code (remember to write the code using functions). Add an oscilloscope image of the generated SPI signal over the `MOSI` and `SS` channels. Justify the observed waveform. Was the signal observed on the oscilloscope the expected waveform? [![Generic badge](https://img.shields.io/badge/WRITTEN-REPORT-red.svg)]()
 
 12. Add _myprint.h_ and _myprint.c_ files to the project. Create and define the content of the _uart.c_ and _uart.h_ files. These files should have the code needed to configure the UART port to be used by `myprintf()` function to display data at the terminal. Report and demonstrate your working code. 
 
 ### __Part II. Communicating with the SD__
+#### __Background__
 The SD has a set of commands available for communication. For further information on this, check out lecture on SPI and SD cards from Universitty at Buffalo:
 <div align="center">
 
@@ -185,10 +196,12 @@ This is the `reset` command, which puts the SD card into the SPI mode if execute
 
 The SD card will respond to the `reset` command by sending a basic 8-bit response through the MISO line. The structure of this response is shown in the figure below. The first bit is always `0`, while the rest specify any errors that may have occurred while processing the last message. If the command you sent was successfully received, you will receive the message `0000 0001`.
 
-<figure align=center>
-    <img width="500" src="img/command_responses.png">
-    <figcaption><b>Responses to commands.</b> Depending upon the command, there are different responses. The specification is calling them R1, R3 or R7. There are more possible responses, but these are the most important.</figcaption>
-</figure>
+<div>
+	<figure align=center>
+    	<img width="600" src="img/command_responses.png">
+    	<figcaption><b>Responses to commands.</b> Depending upon the command, there are different responses. The specification is calling them R1, R3 or R7. There are more possible responses, but these are the most important.</figcaption>
+	</figure>
+</div>
 
 To receive this message, your program should continuously toggle the `SD CLK` signal and watch the `MISO` line for data, while keeping the `MOSI` line high and `CS` line low. 
 
@@ -203,21 +216,21 @@ Following a successful `reset`, test if your system can successfully communicate
 A response to these commands consists of 40 bits, where the first 8 bits are identical to the basic 8-bit response, while the remaining 32 bits contain specific information about the SD card. If successful, the first 8 bits of the response will be either `0000 0001` or `0000 0101` depending on the version of your SD card.
 
 #### __Sending commands to the SD__
-Complete the C program illustrated below that allows a user to input a 48-bit command on the keyboard and send it to the SD card via SPI. 
+1. Complete the C program illustrated below that allows a user to input a 48-bit command on the keyboard and send it to the SD card via SPI. 
 
-1. Complete the line associated to the CMD08 command. Type in the missing hex values.
+   1. Complete the line associated to the CMD08 command. Type in the missing hex values.
 
-2. Review the function `spiXchg()`. Identify the part of this function that __sends__ the command to the SD. Report the identified code and a generate a flowchart of this process. 
+   2. Review the function `spiXchg()`. Identify the part of this function that __sends__ the command to the SD. Report the identified code and a generate a flowchart of this process. 
 
-3. Review the function `spiXchg()`. Identify the part of this function that __receives__ the response from the SD. Report the identified code and a flowchart of this process. 
+   3. Review the function `spiXchg()`. Identify the part of this function that __receives__ the response from the SD. Report the identified code and a flowchart of this process. 
 
-4. Complete the main program with the code to send the first two commands (__CMD00__ and __CMD08__) to the SD, and receive the two responses from the SD. Identify the responses and explain their meaning. Report the code and the interpretation of the responses. Demonstrate to the professor the execution of the program and the interpretation of responses. 
+   4. Complete the main program with the code to send the first two commands (__CMD00__ and __CMD08__) to the SD, and receive the two responses from the SD. Identify the responses and explain their meaning. Report the code and the interpretation of the responses. Demonstrate to the professor the execution of the program and the interpretation of responses. 
 
-Review the program and the values displayed at the terminal and answer the following questions.
+2. Review the program and the values displayed at the terminal and answer the following questions.
 
-1. When sending each byte of the command, what is the value being received from the SD card?
+   1. When sending each byte of the command, what is the value being received from the SD card?
 
-2. When receiving the response from the SD card, what is the value being sent to the SD card?
+   2. When receiving the response from the SD card, what is the value being sent to the SD card?
 
 ```c
 #define RXBUFSIZE 0x400
@@ -320,12 +333,11 @@ uint32_t spiXchg(const uint8_t * send_buff, uint32_t bc, uint8_t * receive_buff 
 
    The steps necessary to complete the SD card initialization are shown in the flowchart below. The flowchart consists of boxes with a specific command at each box. Starting from the top, each command has to be sent to the SD card, and a response has to be received. In some cases, a response from the card needs to be processed to decide the next course of action.
 
-<figure align="center">
+<div align="center">
     <img src="img/flow_diagram.png">
-</figure>
+</div>
 
    1. To begin initialization, set the `MOSI` and `CS` lines to logic 1 and toggle the `SD CLK` for at least 74 cycles. 
-
    2. Next, follow the initialization procedure outlined in the flowchart, while keeping the `CS` line low at all times. 
       1. The first command to send is the `reset` command. __CMD0__ sets the SD card into SPI mode. The SD card should respond to this command with the 8-bit message `00000001` indicating no errors. If the SD fails to respond, the command should be sent again.
       2. The second command, __CMD08__, determines if the SD card is compliant with version 2.00 of the SD card specifications. In reply to __CMD08__, the SD card will issue a 40-bit response. The response indicates how to proceed with the initialization.
@@ -333,7 +345,6 @@ uint32_t spiXchg(const uint8_t * send_buff, uint32_t bc, uint8_t * receive_buff 
       3. If the command is valid and no errors occurred, then verify if the check pattern in the response is `10101010` and that the voltage field is set to `0001`. If either of these conditions fails, the SD card will not function correctly and you should stop the initialization procedure. Otherwise, proceed with the initialization steps of version 2.00 compliant SD card, following the right-hand side of the flowchart. 
       4. For the case of an old SD card, the next step of the initialization procedure is to send CMD58 to obtain the contents of the Operating Conditions Register (OCR). The OCR indicates the voltage levels the SD card can work with. 
       5. To determine if the SD card is ready for exchange of data, the program should send two commands to the SD card: __CMD55__, followed by __ACMD41__. The argument in each of these commands must be `0`. After each command is sent, the SD card will respond. Of particular interest is the response to command __ACMD41__. The response is a basic 8-bit response. It is expected that the bit `in idle state` will remain `1` for a while. However, the bit will be set to `0` when the card is ready. If it is not, try sending the pair of commands over again and again until the response received is `0000 0000`.
-
 2. Complete the main program to initialize the SD card as described above. The program should send the sequence of commands (all with the argument field set to 0, except for CMD08) to initialize the SD card and display the response to each command in the terminal window. When needed, your program should scan the response and proceed with the initialization only if the correct response has been received.
 
    * What is the purpose of the `initCycles()` function? Report the answer to this question.
