@@ -420,8 +420,6 @@ Turn in a technical report that includes the following information:
 3. Elaboration on the key elements of the laboratory listed below (also marked throughout the lab procedure):
 
 __Part I__
-
-<input type="checkbox" enabled checked /> works
 - [x] Flowchart illustrating the initializing process for the SPI
 - [x] Flowchart illustrating the process to send values using `spiSend()` in _spi.c_
 - [x] Image of the generated SPI signal over the `MOSI` and `SS` lines, including justification of the observed waveform. Was the signal observed on the oscilloscope the expected waveform?
