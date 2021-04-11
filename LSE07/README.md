@@ -2,7 +2,7 @@
     <img width=200, src="img/teclogo.png">
 </div>
 
-# Laboratory 7. SPI and SD Interfacing with Arduino Zero (draft)
+# Laboratory 7. SPI and SD Interfacing with Arduino Zero
 
 ## **Introduction**
 In this lab, you will write C code using the header and source files provided by ATMEL. You will also develop your own header and source files to access and manipulate an Arduino SD shield. With this lab you have the chance to strengthen your knowledge on the SPI protocol by programming an interface to the SD shield and by monitoring and measuring SPI signals with the oscilloscope. 
