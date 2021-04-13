@@ -73,11 +73,11 @@ read:     	   	LDRB R1, [R3, #0x0F] //reads STATUS
                  	ANDS R1, R1, R4  	//to test SYNCBUSY bit
                  	BNE  read        	//jump if it not synchronize
    	//***************************************************************************
-          	//Loop to generate the square-wave signal
-            //EXTRA cycles to ADD to the initial count---it will be still a 
-            //polling-error of +/- 7 us in the period of the signal
-            //LDRB(4) + ANDS(1) + BEQ(2) + LDRB(4) + ANDS(1) + BEQ(1) + STR(4) + 
-            //STRB(4) + STRH(4) + B(2) = 27 cycles
+			//Loop to generate the square-wave signal
+			//EXTRA cycles to ADD to the initial count---it will be still a 
+			//polling-error of +/- 7 us in the period of the signal
+			//LDRB(4) + ANDS(1) + BEQ(2) + LDRB(4) + ANDS(1) + BEQ(1) + STR(4) + 
+			//STRB(4) + STRH(4) + B(2) = 27 cycles
 again:    	   	    LDRB R1, [R3, #0x0E] //reads the INTFLAG
                  	ANDS R1, R1, R5  	//to test OVF flag
                  	BEQ  again       	//jump if is not overflowed
@@ -260,3 +260,47 @@ Remember that header files have the following directives at the beginning and en
     ```myprintf(“%d%d/”, xRTC.DATE.field.dec_month, xRTC.DATE.field.un_month);```
 
 10.	Demonstrate to the professor that your new code works and explain the structure of your new code.
+
+## Deliverables
+The design and implementation process should be documented in the technical report, along with the link to the Github repository with the full C code and a demonstration video (3 minutes maximum). Your report must include the following sections:
+
+1. Introduction
+   * Explain what you did in this laboratory.
+   * Include a brief explanation of each .C file written for your project.
+2. Results
+   * __Part I__
+    
+	1.4 Explanation of the code section where the polling operation takes place. Include an image of the generated waveform.
+   * __Part II__
+
+     2.1 Explanation of the procedure to configure I2C peripherals. List the different microcontroller registers, the values assigned to each register and the corresponding configuration. Draw an activity diagram with the configuration procedure.
+
+     2.3 Answer to the following questions
+         1. What is the ADDRESS of the RTC?
+         2. Find in the datasheet the packet sequence to write to the slave. Report a drawing of this transfer packet.
+         3. Find in the datasheet the packet sequence to read from the slave. Report a drawing of this transfer packet.
+
+     2.5 RTC I2C Program
+
+        * After executing the *rtc_12c.c* program step by step and before starting the “sending sequence”, what are the values “to be sent” to the RTC?. These values are located at the tx_buf[] buffer. 
+
+        * Review the code and explain using an activity diagram the steps needed to write values to the RTC and the steps needed to read information from the RTC. Report these diagrams.
+
+        * What memory locations of the RTC were written? and what are the values at these locations after completing the “sending sequence”? Report this findings.
+
+        * After executing the “receiving sequence”, were the values correctly recovered?. Report the recovered values.
+
+        * What is the purpose of the code “RELOCATING POINTER BEFORE RECEIVING”? If you write comments to this code, is the code working as expected? Report your explanation and findings.
+
+    2.6 Screenshot of the "Hello World" line displayed on the Terminal. 
+
+    2.10 Screenshot of the myprintf function printing the initialized RTC with the current time and date, at the PuTTY terminal. 
+
+
+3. Individual conclusions
+
+4. Appendix A
+   * Link to GCC C Executable project for Part I with the translation from Assembly to C of the square wave generation rutine. 
+   * Link to GCC C Executable project for Part II with code for serial communication and RTC initialization and control. 
+   * Link to demonstration video 
+
