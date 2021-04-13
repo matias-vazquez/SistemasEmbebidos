@@ -413,11 +413,12 @@ void rcvr_datablock(const uint8_t * send_buff, uint32_t lba, uint8_t * receive_b
 ## Deliverables
 Turn in a technical report that includes the following information:
 
-1. Link to the GitHub repository with all the working codes for Parts I through IV of the laboratory. 
+1. Introduction
 
-2. Link to a video showing your working code and explaining the indicated items for Parts I through IV. 
+   * Explain what you did in this laboratory
+   * Include a brief explanation of each .C file written for your project
 
-3. Elaboration on the key elements of the laboratory listed below (also marked throughout the lab procedure):
+2. Results 
 
 __Part I__
 - [x] Flowchart illustrating the initializing process for the SPI
@@ -446,4 +447,16 @@ __Part IV__
    2. What information are these arguments providing?
 - [x] Interpretation of the response received from the SD card by reading the first 512-byte block of the card. 
 - [x] Content of the memory locations of the first 512-byte block of the SD card
+
+3. Individual conclusions
+
+   * Interpretation of results
+   * Applications of and improvements of exercises
+   * Justification in case of any errors
+
+4. Appendix A
+   * Link to the GitHub repository with all the working codes for Parts I through IV of the laboratory. 
+   * Link to a video showing your working code and explaining the indicated items for Parts I through IV. 
+
+
 
