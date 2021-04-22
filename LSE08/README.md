@@ -19,10 +19,10 @@ Qty | Material
 
 __SOFTWARE__
 
-:white_check_mark: FreeRTOS code
-:white_check_mark: `yprintf`, `uart.c` and `uart.h`
-:white_check_mark: Atmel/Microchip Studio
-:white_check_mark: PuTTY
+- :white_check_mark: FreeRTOS code
+- :white_check_mark: `myprintf`, `uart.c` and `uart.h` routines
+- :white_check_mark: Atmel/Microchip Studio
+- :white_check_mark: PuTTY
 
 Part I: Setup FreeRTOS for the SAMD21g18 processor
 
