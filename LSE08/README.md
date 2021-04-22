@@ -1,99 +1,198 @@
-# Laboratory 8: CAN interfacing with CANoe and John Deere Demo Box
- 
-## Objectives
-- Strengthen your knowledge and skills on serial data communication protocols, specifically CAN and SAE J1939. 
-- Learn how to configure the VECTOR tools, how to set up the CAN controller, and how to send CAN messages, based on the SAE J1939 standard.
+# Laboratory 9: FreeRTOS Threads and Queues
+
+## Objective
+To trengthen your knowledge and abilities about real time operating systems, specifically how to use threads and queues.
 
 ## Introduction
-This lab provides you the opportunity to learn how to develop embedded software applications using the CAN and SAE J1939 standard. In this lab, you will interface the VN1610 CAN controller from VECTOR to the JD Demonstration Box. 
+This lab provides you the opportunity to learn how to develop embedded software applications using a real time operating system. This lab will help you understand how to schedule tasks and how to exchange data between threads using queues. 
 
-### Equipment
-1 VN1610 Interface from VECTOR
-1 CAN-serial cable
-1 JD Demonstration Box
-1 Protoboard
-Wiring cables (male to female pin header cables)
+__HARDWARE__
+Qty | Material
+:---: | :---
+1 | Arduino Zero
+1 | USB-microusb cable
+1 | Dip Switch
+4 | Resistors 4.7k
+4 | Resistors 1k
+1 | FTDIO for serial communication
+1 |USB-miniusb cable
 
-### Software
-CANoe 10.0 SP3
-SAE J1939 Documentation
-SAE J1939 Slides
-JD Demo Box 
+__SOFTWARE__
 
-## Procedure 
-### Part I. Initial setup
-1. Open software CANoe 10.0 SP3.
-2. Click on File->New and select ‘General->Default’ Template.
-3. Click on Simulation->Simulation Setup.
-4. Expand: CAN Networks / CAN / Channels. 
-5. Connect to the PC the VN1610 CAN Interface from VECTOR.
-6. Double click on the Network block from the left window.
-7. In the Network Hardware Configuration window, select CAN 2 from the left panel. Then click on Scan… in the right panel. 
-8. In the Baud Rate Scanner window, select Active for Mode and then click on Scan. A standard 250.000 kBaud should be detected. Then, click OK and OK again.
-9. In the Simulation Setup window, right click on the Network block and select Assign Channel… Then, select CAN 2 and click OK.
-10.	Go to Home and click on Start. A Trace window will appear. In this window, you can see the CAN messages received from the JD Demonstration Box. Demonstrate to your instructor that the messages are received correctly.
+- [x] :white_check_mark: FreeRTOS code
+- [x] The latest code for “myprintf” and “uart.c” and “uart.h”
+- [x] The latest version of Atmel must be installed on a computer running Windows OS.
+- [x] The latest version of putty must be installed on a computer running Windows OS.
 
-### Part II. Create and send CAN messages
+Part I: Setup FreeRTOS for the SAMD21g18 processor
 
-1. __Now, is time to send CAN messages to the JD Demonstration Box.__
+1. Download the following FreeRTOS files adjusted for Arduino zero from this link. Place this folder as illustrated below:
+    C:\Users\YOURUSErNAME\Documents\Atmel Studio\7.0\FreeRTOS
 
-2. __First you need to create a Message Database__
-   1. In Home, click Stop.
-   2. In the Simulation Setup window, right-click on Database and click on Add…
-   3. Find and open the ‘EmptyTemplate.dbc’ file in the Database folder:
+2. Create a new project in ATMEL studio.
 
-            (C:\Users\Public\Documents\Vector\CANoe\10.0 (x64)\Templates\Database)
+3. Select the GCC C Executable version.
 
-   4. Double click on the created EmptyTemplate database.
-   5. In the Vector CANdb++ Editor configure the Message and the Signal to be transmitted. Right-click on Messages and select New…
-   6. Before configuring the message, go to the JD Demo Box Datasheet to select the message (PGN and SPN) you want to send. Also you need to be familiar with the J1939 standard (view the example in SAE J1939 Documentation or SAE J1939 Presentation). 
-   7. In the Message window, configure and report the messages you select to communicate:
-      1. Name: PGN Name.
-      2. Type: CAN Extended
-      3. ID: All the PGN Identifier (29 bits) for the message. The source address must be A3 always.
-      4. DLC: 8.
-   8. Click Apply, then OK.
-   9. Right-click on Signals and select New…
-   10.	In the Signal window, configure and report the signals you select to control:
-        1. Name: SPN Name.
-        2. Value Type: Unsigned.
-        3. Length, Factor (resolution), Unit, Offset, Minimum-Maximum (range): go to the JD Box Datasheet and the desired SPN.
-   11. Click Apply, then OK.
-   12. Double click on Messages, then double click on the created message. In the Signals bar next to Definition, click on Add… Then, select the created signal and click OK.
-   13. In the left panel, expand the Messages / [Name of the Message] and double-click on the created Signal. In the Start bit write the right number according to the standard.
-   14. Save changes in the CANdb++ Editor and close.
+4. Change the GCCApplicationX  name to your prefered name (FRThreadQueue).
 
-3.	__Second, you need to create the Interactive Generator block.__
-    1. In the Simulation Setup window, right-click on Interactive Generator and select Insert Can Interactive Generator. Double click on the I-Generator block.
-    2. In the CAN IG window, click on the first icon (Add Frame from Database…). Select the message you created and click OK.
-
-4.	__Finally, you can send the message.__
-    1. Go to Home and click on Start. A Trace window will appear. Go back to the Simulation Setup window and double click on the I-Generator block. In the Phys Value option from the signal you can modify the value to be transmitted and finally click on the Send button. NOTE: Verify that Channel CAN 2 for the message is selected.
-    2. Report the values you configure and the output from the JD Demo Box.
-    3. Demonstrate to your instructor that the gauge from the JD Demo Box is moving or changing or an indicator is turned on and off. Every team must configure two different messages and signals to control two different gauges or indicators.
-
-## Deliverables
-Turn in a technical report that includes the following information:
-
-1. **Introduction**
-
-   * Brief exaplanation of the overall procedure followed on this laboratory
-
-2. **Results**
-
-    Part I
-    - [x] _Trace_ window screenshot showing the CAN messages received from the John Deere demo box.
-
-    Part II
-    - [x] Configured values and  output from the JD Demo Box.
-    - [x] Moving gauge from the JD Demo Box, or an indicator is turned on and off. Every team must configure two different messages and signals to control two different gauges or indicators.
+ 
 
 
-3. **Individual conclusions**
+5. At the solution explorer, create two folders.
 
-   * Interpretation of results
-   * Applications of and improvements of exercises
-   * Justification in case of any errors
+ 
 
-4. **Appendix A**
-   * Link to a video showing your working project and explaining the indicated items for Parts I and II. 
+The “include” and the “source” folders as illustrated below.
+
+ 
+
+6. Copy all the files from the folder indicated below and paste them into the include folder at the solution explorer as illustrated below. 
+ C:\Users\YOURUSErNAME\Documents\Atmel Studio\7.0\FreeRTOS\include
+
+ 
+
+7. Copy all the files from the folder indicated below and paste them into the source folder at the solution explorer. 
+C:\Users\YOURUSErNAME\Documents\Atmel Studio\7.0\FreeRTOS\src
+
+8. Modify the main program so it contains the next code:
+
+/* Kernel includes. */
+#include "sam.h"
+#include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
+#include "uart.h"
+#include "myprintf.h"
+
+/* Priorities at which the tasks are created. */
+#define myTASK_TASK_PRIORITY         	( tskIDLE_PRIORITY + 1 )
+
+void my_task(void *p) {
+    	while(1) {
+            	static uint32_t i = 0;
+            	myprintf("\nHello World task 1 %d", i++);
+            	vTaskDelay(1000);
+    	}
+}
+
+int main()
+{
+    	SystemInit();
+    	/* Switch to 8MHz clock (disable prescaler) */
+    	SYSCTRL->OSC8M.bit.PRESC = 0;	
+    	initUART();
+
+    	
+    	xTaskCreate( my_task,        	/* The function that implements the task. */
+            	    "my_task",         /* The text name assigned to the task. */
+            	    512,            	/* The size of the stack to allocate to the task. */
+            	    NULL,           	/* The parameter passed to the task  */
+            	    myTASK_TASK_PRIORITY,  /* The priority assigned to the task. */
+            	    NULL );         	   /* The task handle is not required, so NULL is passed. */
+
+    	/* Start the tasks and timer running. */
+    	vTaskStartScheduler();
+
+    	for( ;; );
+    	return(0);
+}
+
+9. Build the application and connect your development board to the PC using the serial port. Run the program and demonstrate to your professor (print screens) that the messages are properly displayed at the Serial Port terminal (PuTTy). 
+
+
+Part II. Getting familiar with Threads and Queues under FreeRTOS
+View the video found in this link and follow the indications of the presenter step by step (you may want to stop the video to type the code).
+
+1. Your program should display the following messages at the end:
+Send 0 to receiver task
+Received 0
+Demonstrate to your professor (print screens) that these messages were displayed at the PC terminal and show you code. Report your code at this point within your report document. No need to upload files at this point.
+2. Your program should display the following messages at the end:
+Send 0 to receiver task
+Received 0
+Failed to receive data from queue
+Send 1 to receiver task
+Received 1
+Demonstrate to your professor that these messages were displayed at the PC terminal and show you code. Report your final code including it in your document along with print screens of your program working correctly. Upload the files with your code as well. Report an explanation of the reason for displaying “Failed to receive data from queue”.
+
+
+Part III. Write Code using the FreeRTOS to exchange messages and control peripherals
+
+ 
+	Data flow of software application
+Connect four switches to the parallel ports. The messages associated with each switch listed in the table below. Add the schematic diagram to the report.
+SWITCH    	MESSAGE
+1                  	Up		(is connected to D2 in Arduino Zero)
+2                  	Down		(is connected to D3 in Arduino Zero)
+3                  	Left		(is connected to D4 in Arduino Zero)
+4                  	Right		(is connected to D5 in Arduino Zero)
+
+Example code to read a push-button from Arduino Zero. The next code turns-on the TX LED while the push-button (pull-up configuration) is pressed. 
+
+#include "sam.h"
+
+PORT->Group[ 0 ].PINCFG[ PIN_PA16 ].reg = 0x2; //bit INEN must be set for input pins
+PORT->Group[ 0 ].PINCFG[ PIN_PA27 ].reg = 0x0; //bit PMUXEN must be clear for GPIOs
+    	
+PORT->Group[ 0 ].DIRCLR.reg = PORT_PA16; //pin 16 declared as data input
+PORT->Group[ 0 ].DIRSET.reg = PORT_PA27; //pin 27 TX LED declared as data output
+ 
+while (1) {
+if( ( PORT->Group[ 0 ].IN.reg & PORT_IN_IN( PORT_PA16 ) ) == _U_( 0x00000000 ) )
+            	PORT->Group[ 0 ].OUTCLR.reg = PORT_PA27;
+    	else
+            	PORT->Group[ 0 ].OUTSET.reg = PORT_PA27;
+}
+Thread 1 should:
+a) Read the switches from GPIO PORT
+b) Send a message to Thread 2 with the switch id (#switch/message) that was pushed
+c) Waits and reads the acknowledgement from Thread 2. After receiving the acknowledgement, it is ready to send the next message
+Thread 2 should:
+a) Receive and read the data from Thread 1
+b) Display in the serial port the messages (“Up/Down/Right/Left”)
+c) Acknowledge the message reception and waits for the message.
+Demonstrate to your professor that these messages were displayed at the PC terminal and show you code. Report your final code including it in your document along with print screens of your program working correctly. Upload the files with your code as well.
+
+
+
+
+
+
+
+
+
+
+
+
+
+In-lab work
+
+1.	Complete and demonstrate PART I. 
+2.	Complete and demonstrate PART II.
+3.	Complete and demonstrate PART III.
+
+Report
+Make and compress ZIP file that contains the next:
+●	Document (PDF) with the next content:
+1.	Cover
+✔	Laboratory Name, Course ID, Semester, Delivery Date, Team members…
+
+2.	Introduction (it is not the objective of the practice document, instead identify the topics of the practice and write about it)
+
+3.	Development (if you include “print screen” images, name the image and explain the meaning of the image)
+✓	Answer to the questions and report requests of all the items of PART I, PART II and PART III, including the print screens and diagrams (schematic).
+✓	Final version of the code of PART I, PART II and PART III (with comments).
+
+4.	Describe the problems found and solutions
+
+5.	Individual reflection about your learning process (what did you learn with this lab?)
+
+6.	Team conclusion
+
+7.	Bibliography
+
+●	Folder (name it as sources), with the next content:
+1.	The project folder with all the source files (.c [ PART I, II, III ], .h, .ld, .s, .ls, etc.) and WITHOUT OBJECT FILES AND EXECUTABLE FILES (.o, .elf, .bin, etc.) You can use the menu option “Build -> Clean Solution” to delete the object and executable files.
+2.	Each source file must contain comments about the programming.
+
+
