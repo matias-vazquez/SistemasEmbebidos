@@ -7,6 +7,8 @@ To strengthen your knowledge and abilities about real time operating systems, sp
 This lab provides you the opportunity to learn how to develop embedded software applications using a real time operating system. This lab will help you understand how to schedule tasks and how to exchange data between threads using queues. 
 
 __HARDWARE__
+<div align="center">
+
 Qty | Material
 :---: | :---
 1 | Arduino Zero
@@ -16,6 +18,7 @@ Qty | Material
 4 | Resistors 1k
 1 | FTDIO for serial communication
 1 |USB-miniusb cable
+</div>
 
 __SOFTWARE__
 
@@ -121,18 +124,25 @@ Received 1
 Demonstrate to your professor that these messages were displayed at the PC terminal and show you code. Report your final code including it in your document along with print screens of your program working correctly. Upload the files with your code as well. Report an explanation of the reason for displaying “Failed to receive data from queue”.
 
 ### __Part III. Coding using the FreeRTOS to exchange messages and control peripherals__
-	Data flow of software application
+<div align="center">
+<img src="img/dataflow.png">
+</div>
+
 Connect four switches to the parallel ports. The messages associated with each switch listed in the table below. Add the schematic diagram to the report.
 
-SWITCH  | MESSAGE | COMMENT
+<div align="center">
+
+Switch  | Message | Comment
 :---: | :--- | :---
-1  | Up		| is connected to D2 in Arduino Zero 
-2  | Down	| is connected to D3 in Arduino Zero
-3  | Left	| is connected to D4 in Arduino Zero
-4  | Right	| is connected to D5 in Arduino Zero
+1  | Up		| Arduino Zero, pin [D2]
+2  | Down	| Arduino Zero, pin [D3]
+3  | Left	| Arduino Zero, pin [D4]
+4  | Right	| Arduino Zero, pin [D5]
+</div>
 
 Example code to read a push-button from Arduino Zero. The next code turns-on the TX LED while the push-button (pull-up configuration) is pressed. 
 
+```c
 #include "sam.h"
 
 PORT->Group[ 0 ].PINCFG[ PIN_PA16 ].reg = 0x2; //bit INEN must be set for input pins
@@ -147,38 +157,64 @@ if( ( PORT->Group[ 0 ].IN.reg & PORT_IN_IN( PORT_PA16 ) ) == _U_( 0x00000000 ) )
     	else
             	PORT->Group[ 0 ].OUTSET.reg = PORT_PA27;
 }
+```
+
 Thread 1 should:
-a) Read the switches from GPIO PORT
-b) Send a message to Thread 2 with the switch id (#switch/message) that was pushed
-c) Waits and reads the acknowledgement from Thread 2. After receiving the acknowledgement, it is ready to send the next message
+1. Read the switches from GPIO PORT
+2. Send a message to Thread 2 with the switch id (#switch/message) that was pushed
+3. Waits and reads the acknowledgement from Thread 2. After receiving the acknowledgement, it is ready to send the next message
+
 Thread 2 should:
-a) Receive and read the data from Thread 1
-b) Display in the serial port the messages (“Up/Down/Right/Left”)
-c) Acknowledge the message reception and waits for the message.
+1. Receive and read the data from Thread 1
+2. Display in the serial port the messages (“Up/Down/Right/Left”)
+3. Acknowledge the message reception and waits for the message.
+
 Demonstrate to your professor that these messages were displayed at the PC terminal and show you code. Report your final code including it in your document along with print screens of your program working correctly. Upload the files with your code as well.
 
 ## Deliverables
-Make and compress ZIP file that contains the next:
-●	Document (PDF) with the next content:
-1.	Cover
-✔	Laboratory Name, Course ID, Semester, Delivery Date, Team members…
+Turn in a technical report that includes the following information:
 
-2.	Introduction (it is not the objective of the practice document, instead identify the topics of the practice and write about it)
+1. Introduction
 
-3.	Development (if you include “print screen” images, name the image and explain the meaning of the image)
-✓	Answer to the questions and report requests of all the items of PART I, PART II and PART III, including the print screens and diagrams (schematic).
-✓	Final version of the code of PART I, PART II and PART III (with comments).
+   * Explain what you did in this laboratory
+   * Include a brief explanation of each .C file written for your project
 
-4.	Describe the problems found and solutions
+2. Results 
 
-5.	Individual reflection about your learning process (what did you learn with this lab?)
+__Part I__
+- [x] Flowchart illustrating the initializing process for the SPI
+- [x] Flowchart illustrating the process to send values using `spiSend()` in _spi.c_
+- [x] Image of the generated SPI signal over the `MOSI` and `SS` lines, including justification of the observed waveform. Was the signal observed on the oscilloscope the expected waveform?
 
-6.	Team conclusion
+__Part II__
+- [x] Flowchart of the process to send commands to the SD card in the `spiXchg()` function
+- [x] Flowchart of the process to receive responses from the SD card in the `spiXchg()` function
+- [x] Interpretation of responses received from the SD card by sending commands __CMD00__ and __CMD08__.
+- [x] Answers to questions:
+    1.	When sending each byte of the command, what is the value being received from the SD?
+    2.	When receiving the response from the SD, what is the value being sent to the SD?
 
-7.	Bibliography
+__Part III__
+- [x] What is the purpose of the `initCycles()` function?
+- [x] Modifications to the main program to additionally send commands __CMD55__ and __CMD41__. 
 
-●	Folder (name it as sources), with the next content:
-1.	The project folder with all the source files (.c [ PART I, II, III ], .h, .ld, .s, .ls, etc.) and WITHOUT OBJECT FILES AND EXECUTABLE FILES (.o, .elf, .bin, etc.) You can use the menu option “Build -> Clean Solution” to delete the object and executable files.
-2.	Each source file must contain comments about the programming.
+__Part IV__
+- [x] Flowchart of the process to send commands to the SD card in function `rcvr_datablock()`.
+- [x] Answer to the following questions:
+   1. What arguments of the function are related to this part of the code? What information are these arguments providing?
+   2. Explain how the __CMD17__ command argument is being passed to the SD. What is this argument for?
+- [x] Flowchart of the process to receive response from the SD card in function `rcvr_datablock()`.
+   1. What arguments of the `rcvr_datablock()` function are related to this part of the code? 
+   2. What information are these arguments providing?
+- [x] Interpretation of the response received from the SD card by reading the first 512-byte block of the card. 
+- [x] Content of the memory locations of the first 512-byte block of the SD card
 
+3. Individual conclusions
 
+   * Interpretation of results
+   * Applications of and improvements of exercises
+   * Justification in case of any errors
+
+4. Appendix A
+   * Link to the GitHub repository with all the working codes for Parts I through IV of the laboratory. 
+   * Link to a video showing your working code and explaining the indicated items for Parts I through IV. 
