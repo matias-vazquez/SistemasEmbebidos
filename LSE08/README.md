@@ -31,26 +31,18 @@ __SOFTWARE__
 
 ### __Part I: Setting up FreeRTOS for the SAMD21G18 processor__
 
-1. Download the following FreeRTOS files adjusted for Arduino zero from this link. Place this folder as illustrated below:
-    C:\Users\YOURUSErNAME\Documents\Atmel Studio\7.0\FreeRTOS
+1. Download the following FreeRTOS files adjusted for Arduino zero from the link below. Place the downloaded folder as shown:
 
-2. Create a new project in ATMEL studio.
+    `C:\Users\Username\Documents\Atmel Studio\7.0\FreeRTOS`
 
-3. Select the GCC C Executable version.
+2. Create a _GCC C Executable_ project in ATMEL studio.
 
-4. Change the GCCApplicationX  name to your prefered name (FRThreadQueue).
+3. On the Solution Explorer, create two folders: `include` and `source` and move the contents from your FreeRTOS folder to the respective created folders on your project: `include → include` and `src → source`
 
-5. At the solution explorer, create two folders.
-
-The “include” and the “source” folders as illustrated below.
-
-6. Copy all the files from the folder indicated below and paste them into the include folder at the solution explorer as illustrated below. 
- C:\Users\YOURUSErNAME\Documents\Atmel Studio\7.0\FreeRTOS\include
-
-7. Copy all the files from the folder indicated below and paste them into the source folder at the solution explorer. 
+4. Copy all the files from the folder indicated below and paste them into the source folder at the solution explorer. 
 C:\Users\YOURUSErNAME\Documents\Atmel Studio\7.0\FreeRTOS\src
 
-8. Modify the main program so it contains the next code:
+5. Paste the following code into your `main.c`:
 
 ```c
 /* Kernel includes. */
@@ -95,7 +87,7 @@ int main()
 }
 ```
 
-9. Build the application and connect your development board to the PC using the serial port. Run the program and demonstrate to your professor (print screens) that the messages are properly displayed at the Serial Port terminal (PuTTy). 
+6. Build the application and connect your development board to the PC using the serial port. Run the program and demonstrate to your professor (print screens) that the messages are properly displayed at the Serial Port terminal (PuTTy). 
 
 ### __Part II. Getting familiar with Threads and Queues under FreeRTOS__
 View the video found in this link and follow the indications of the presenter step by step (you may want to stop the video to type the code).
@@ -106,21 +98,20 @@ View the video found in this link and follow the indications of the presenter st
 </div>
 
 1. Your program should display the following messages at the end:
-```
-Send 0 to receiver task
-Received 0
-```
+
+        Send 0 to receiver task
+        Received 0
 
 Demonstrate to your professor (print screens) that these messages were displayed at the PC terminal and show you code. Report your code at this point within your report document. No need to upload files at this point.
 
 2. Your program should display the following messages at the end:
-```
-Send 0 to receiver task
-Received 0
-Failed to receive data from queue
-Send 1 to receiver task
-Received 1
-```
+
+        Send 0 to receiver task
+        Received 0
+        Failed to receive data from queue
+        Send 1 to receiver task
+        Received 1
+
 Demonstrate to your professor that these messages were displayed at the PC terminal and show you code. Report your final code including it in your document along with print screens of your program working correctly. Upload the files with your code as well. Report an explanation of the reason for displaying “Failed to receive data from queue”.
 
 ### __Part III. Coding using the FreeRTOS to exchange messages and control peripherals__
@@ -159,14 +150,14 @@ if( ( PORT->Group[ 0 ].IN.reg & PORT_IN_IN( PORT_PA16 ) ) == _U_( 0x00000000 ) )
 }
 ```
 
-Thread 1 should:
+__Thread 1 should:__
 1. Read the switches from GPIO PORT
-2. Send a message to Thread 2 with the switch id (#switch/message) that was pushed
-3. Waits and reads the acknowledgement from Thread 2. After receiving the acknowledgement, it is ready to send the next message
+2. Send a message to Thread 2 notifying that a switch was pushed (switch number/message) 
+3. Wait and read the acknowledgement from Thread 2. After receiving the acknowledgement, it is ready to send the next message.
 
-Thread 2 should:
+__Thread 2 should:__
 1. Receive and read the data from Thread 1
-2. Display in the serial port the messages (“Up/Down/Right/Left”)
+2. Display in the serial port the button direction of the pressed button: `Up` / `Down` / `Right` / `Left`
 3. Acknowledge the message reception and waits for the message.
 
 Demonstrate to your professor that these messages were displayed at the PC terminal and show you code. Report your final code including it in your document along with print screens of your program working correctly. Upload the files with your code as well.
@@ -182,32 +173,26 @@ Turn in a technical report that includes the following information:
 2. Results 
 
 __Part I__
-- [x] Flowchart illustrating the initializing process for the SPI
-- [x] Flowchart illustrating the process to send values using `spiSend()` in _spi.c_
-- [x] Image of the generated SPI signal over the `MOSI` and `SS` lines, including justification of the observed waveform. Was the signal observed on the oscilloscope the expected waveform?
+- [x] Screenshot of properly-displayed messages from `main.c` on the Serial Port terminal (PuTTy).
 
 __Part II__
-- [x] Flowchart of the process to send commands to the SD card in the `spiXchg()` function
-- [x] Flowchart of the process to receive responses from the SD card in the `spiXchg()` function
-- [x] Interpretation of responses received from the SD card by sending commands __CMD00__ and __CMD08__.
-- [x] Answers to questions:
-    1.	When sending each byte of the command, what is the value being received from the SD?
-    2.	When receiving the response from the SD, what is the value being sent to the SD?
+- [x] Screenshot of message on the Serial Port terminal:
+
+        Send 0 to receiver task
+        Received 0
+
+- [x] Screenshot of message on the Serial Port terminal:
+
+        Send 0 to receiver task
+        Received 0
+        Failed to receive data from queue
+        Send 1 to receiver task
+        Received 1
+
+- [x] Explain why message "`Failed to receive data from queue`" was displayed.
 
 __Part III__
-- [x] What is the purpose of the `initCycles()` function?
-- [x] Modifications to the main program to additionally send commands __CMD55__ and __CMD41__. 
-
-__Part IV__
-- [x] Flowchart of the process to send commands to the SD card in function `rcvr_datablock()`.
-- [x] Answer to the following questions:
-   1. What arguments of the function are related to this part of the code? What information are these arguments providing?
-   2. Explain how the __CMD17__ command argument is being passed to the SD. What is this argument for?
-- [x] Flowchart of the process to receive response from the SD card in function `rcvr_datablock()`.
-   1. What arguments of the `rcvr_datablock()` function are related to this part of the code? 
-   2. What information are these arguments providing?
-- [x] Interpretation of the response received from the SD card by reading the first 512-byte block of the card. 
-- [x] Content of the memory locations of the first 512-byte block of the SD card
+- [x] Screenshot of message on the Serial Port terminal showing the pressed button.
 
 3. Individual conclusions
 
