@@ -1,4 +1,4 @@
-# Laboratory 9: FreeRTOS Threads and Queues
+# Laboratory 8: FreeRTOS Threads and Queues
 
 ## Objective
 To strengthen your knowledge and abilities about real time operating systems, specifically how to use threads and queues.
