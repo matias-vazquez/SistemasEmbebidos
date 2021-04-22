@@ -1,7 +1,7 @@
 # Laboratory 9: FreeRTOS Threads and Queues
 
 ## Objective
-To trengthen your knowledge and abilities about real time operating systems, specifically how to use threads and queues.
+To strengthen your knowledge and abilities about real time operating systems, specifically how to use threads and queues.
 
 ## Introduction
 This lab provides you the opportunity to learn how to develop embedded software applications using a real time operating system. This lab will help you understand how to schedule tasks and how to exchange data between threads using queues. 
@@ -24,7 +24,9 @@ __SOFTWARE__
 - :white_check_mark: Atmel/Microchip Studio
 - :white_check_mark: PuTTY
 
-Part I: Setup FreeRTOS for the SAMD21g18 processor
+## Lab work
+
+### __Part I: Setting up FreeRTOS for the SAMD21G18 processor__
 
 1. Download the following FreeRTOS files adjusted for Arduino zero from this link. Place this folder as illustrated below:
     C:\Users\YOURUSErNAME\Documents\Atmel Studio\7.0\FreeRTOS
@@ -35,27 +37,19 @@ Part I: Setup FreeRTOS for the SAMD21g18 processor
 
 4. Change the GCCApplicationX  name to your prefered name (FRThreadQueue).
 
- 
-
-
 5. At the solution explorer, create two folders.
-
- 
 
 The “include” and the “source” folders as illustrated below.
 
- 
-
 6. Copy all the files from the folder indicated below and paste them into the include folder at the solution explorer as illustrated below. 
  C:\Users\YOURUSErNAME\Documents\Atmel Studio\7.0\FreeRTOS\include
-
- 
 
 7. Copy all the files from the folder indicated below and paste them into the source folder at the solution explorer. 
 C:\Users\YOURUSErNAME\Documents\Atmel Studio\7.0\FreeRTOS\src
 
 8. Modify the main program so it contains the next code:
 
+```c
 /* Kernel includes. */
 #include "sam.h"
 #include "FreeRTOS.h"
@@ -83,12 +77,12 @@ int main()
     	initUART();
 
     	
-    	xTaskCreate( my_task,        	/* The function that implements the task. */
-            	    "my_task",         /* The text name assigned to the task. */
-            	    512,            	/* The size of the stack to allocate to the task. */
-            	    NULL,           	/* The parameter passed to the task  */
-            	    myTASK_TASK_PRIORITY,  /* The priority assigned to the task. */
-            	    NULL );         	   /* The task handle is not required, so NULL is passed. */
+    	xTaskCreate( my_task,        	    /* The function that implements the task. */
+            	    "my_task",              /* The text name assigned to the task. */
+            	    512,            	    /* The size of the stack to allocate to the task. */
+            	    NULL,           	    /* The parameter passed to the task  */
+            	    myTASK_TASK_PRIORITY,   /* The priority assigned to the task. */
+            	    NULL );         	    /* The task handle is not required, so NULL is passed.                  */
 
     	/* Start the tasks and timer running. */
     	vTaskStartScheduler();
@@ -96,36 +90,46 @@ int main()
     	for( ;; );
     	return(0);
 }
+```
 
 9. Build the application and connect your development board to the PC using the serial port. Run the program and demonstrate to your professor (print screens) that the messages are properly displayed at the Serial Port terminal (PuTTy). 
 
-
-Part II. Getting familiar with Threads and Queues under FreeRTOS
+### __Part II. Getting familiar with Threads and Queues under FreeRTOS__
 View the video found in this link and follow the indications of the presenter step by step (you may want to stop the video to type the code).
 
+<div align="center">
+
+[![Demo video](https://img.youtube.com/vi/8lIpI30Tj-g/0.jpg)](https://www.youtube.com/watch?v=8lIpI30Tj-g)
+</div>
+
 1. Your program should display the following messages at the end:
+```
 Send 0 to receiver task
 Received 0
+```
+
 Demonstrate to your professor (print screens) that these messages were displayed at the PC terminal and show you code. Report your code at this point within your report document. No need to upload files at this point.
+
 2. Your program should display the following messages at the end:
+```
 Send 0 to receiver task
 Received 0
 Failed to receive data from queue
 Send 1 to receiver task
 Received 1
+```
 Demonstrate to your professor that these messages were displayed at the PC terminal and show you code. Report your final code including it in your document along with print screens of your program working correctly. Upload the files with your code as well. Report an explanation of the reason for displaying “Failed to receive data from queue”.
 
-
-Part III. Write Code using the FreeRTOS to exchange messages and control peripherals
-
- 
+### __Part III. Coding using the FreeRTOS to exchange messages and control peripherals__
 	Data flow of software application
 Connect four switches to the parallel ports. The messages associated with each switch listed in the table below. Add the schematic diagram to the report.
-SWITCH    	MESSAGE
-1                  	Up		(is connected to D2 in Arduino Zero)
-2                  	Down		(is connected to D3 in Arduino Zero)
-3                  	Left		(is connected to D4 in Arduino Zero)
-4                  	Right		(is connected to D5 in Arduino Zero)
+
+SWITCH  | MESSAGE | COMMENT
+:---: | :--- | :---
+1  | Up		| is connected to D2 in Arduino Zero 
+2  | Down	| is connected to D3 in Arduino Zero
+3  | Left	| is connected to D4 in Arduino Zero
+4  | Right	| is connected to D5 in Arduino Zero
 
 Example code to read a push-button from Arduino Zero. The next code turns-on the TX LED while the push-button (pull-up configuration) is pressed. 
 
@@ -153,25 +157,7 @@ b) Display in the serial port the messages (“Up/Down/Right/Left”)
 c) Acknowledge the message reception and waits for the message.
 Demonstrate to your professor that these messages were displayed at the PC terminal and show you code. Report your final code including it in your document along with print screens of your program working correctly. Upload the files with your code as well.
 
-
-
-
-
-
-
-
-
-
-
-
-
-In-lab work
-
-1.	Complete and demonstrate PART I. 
-2.	Complete and demonstrate PART II.
-3.	Complete and demonstrate PART III.
-
-Report
+## Deliverables
 Make and compress ZIP file that contains the next:
 ●	Document (PDF) with the next content:
 1.	Cover
