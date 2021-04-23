@@ -1,3 +1,7 @@
+<div align="right">
+<img src="img/teclogo.png">
+</div>
+
 # Laboratory 8: FreeRTOS Threads and Queues
 
 ## Objective
