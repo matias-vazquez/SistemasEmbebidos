@@ -12,8 +12,8 @@ __HARDWARE__
 Qty | Material
 :---: | :---
 1 | Arduino Zero
-1 | USB-microusb cable
-1 | Dip Switch
+1 | USB-MicroUSB cable
+1 | Dip-switch
 4 | Resistors 4.7k
 4 | Resistors 1k
 1 | FTDIO for serial communication
@@ -31,18 +31,15 @@ __SOFTWARE__
 
 ### __Part I: Setting up FreeRTOS for the SAMD21G18 processor__
 
-1. Download the following FreeRTOS files adjusted for Arduino zero from the link below. Place the downloaded folder as shown:
+1. Download from this repository the FreeRTOS files for Arduino Zero, and save the downloaded folder on path (create folder if necessary):
 
     `C:\Users\Username\Documents\Atmel Studio\7.0\FreeRTOS`
 
 2. Create a _GCC C Executable_ project in ATMEL studio.
 
-3. On the Solution Explorer, create two folders: `include` and `source` and move the contents from your FreeRTOS folder to the respective created folders on your project: `include → include` and `src → source`
+3. On the _Solution Explorer_, create two folders: _`include`_ and _`source`_ and move the contents from your FreeRTOS folder to the respectively newly created folders in your project: _`include → include`_ and _`src → source`_.
 
-4. Copy all the files from the folder indicated below and paste them into the source folder at the solution explorer. 
-C:\Users\YOURUSErNAME\Documents\Atmel Studio\7.0\FreeRTOS\src
-
-5. Paste the following code into your `main.c`:
+4. Paste the following code into your `main.c` file:
 
 ```c
 /* Kernel includes. */
@@ -87,24 +84,24 @@ int main()
 }
 ```
 
-6. Build the application and connect your development board to the PC using the serial port. Run the program and demonstrate to your professor (print screens) that the messages are properly displayed at the Serial Port terminal (PuTTy). 
+5. Build the application and connect your development board to the PC using the serial port. Run the program and document with screenshots that the respective messages are properly displayed on the serial port Terminal (PuTTy). 
 
 ### __Part II. Getting familiar with Threads and Queues under FreeRTOS__
-View the video found in this link and follow the indications of the presenter step by step (you may want to stop the video to type the code).
+6. Watch the following video and follow the indications (stop the video when necessary to type in the code).
 
 <div align="center">
 
 [![Demo video](https://img.youtube.com/vi/8lIpI30Tj-g/0.jpg)](https://www.youtube.com/watch?v=8lIpI30Tj-g)
 </div>
 
-1. Your program should display the following messages at the end:
+7. Your program should display the following messages at the end:
 
         Send 0 to receiver task
         Received 0
 
-Demonstrate to your professor (print screens) that these messages were displayed at the PC terminal and show you code. Report your code at this point within your report document. No need to upload files at this point.
+8. Document with screenshots that these messages were displayed on the serial port Terminal.
 
-2. Your program should display the following messages at the end:
+9. Your program should display the following messages at the end:
 
         Send 0 to receiver task
         Received 0
@@ -112,18 +109,24 @@ Demonstrate to your professor (print screens) that these messages were displayed
         Send 1 to receiver task
         Received 1
 
-Demonstrate to your professor that these messages were displayed at the PC terminal and show you code. Report your final code including it in your document along with print screens of your program working correctly. Upload the files with your code as well. Report an explanation of the reason for displaying “Failed to receive data from queue”.
+10. Document with screenshots that these messages were displayed at the serial port Terminal. Explain why message _`Failed to receive data from queue`_ is displayed. 
 
 ### __Part III. Coding using the FreeRTOS to exchange messages and control peripherals__
 <div align="center">
 <img src="img/dataflow.png">
 </div>
 
-Connect four switches to the parallel ports. The messages associated with each switch listed in the table below. Add the schematic diagram to the report.
+11. Connect four switches to the parallel ports using as a reference the Arduino Zero pinout and connection table shown below. Add an schematic diagram of the connections to your report.
+
+<div align="center">
+<img src="https://content.arduino.cc/assets/Pinout-ZERO_latest.png">
+</div>
+
+12. The messages associated with each switch are:
 
 <div align="center">
 
-Switch  | Message | Comment
+Switch  | Message | Connection
 :---: | :--- | :---
 1  | Up		| Arduino Zero, pin [D2]
 2  | Down	| Arduino Zero, pin [D3]
@@ -131,7 +134,7 @@ Switch  | Message | Comment
 4  | Right	| Arduino Zero, pin [D5]
 </div>
 
-Example code to read a push-button from Arduino Zero. The next code turns-on the TX LED while the push-button (pull-up configuration) is pressed. 
+13. Example code to read a push-button from the Arduino Zero. This code turns on the TX LED while the push-button (pull-up configuration) is pressed. 
 
 ```c
 #include "sam.h"
@@ -160,7 +163,7 @@ __Thread 2 should:__
 2. Display in the serial port the button direction of the pressed button: `Up` / `Down` / `Right` / `Left`
 3. Acknowledge the message reception and waits for the message.
 
-Demonstrate to your professor that these messages were displayed at the PC terminal and show you code. Report your final code including it in your document along with print screens of your program working correctly. Upload the files with your code as well.
+Document with screenshots that these messages were displayed at the serial port Terminal.
 
 ## Deliverables
 Turn in a technical report that includes the following information:
@@ -173,7 +176,7 @@ Turn in a technical report that includes the following information:
 2. Results 
 
 __Part I__
-- [x] Screenshot of properly-displayed messages from `main.c` on the Serial Port terminal (PuTTy).
+- [x] Screenshot of properly-displayed messages from `main.c` on the serial port Terminal (PuTTy).
 
 __Part II__
 - [x] Screenshot of message on the Serial Port terminal:
@@ -192,7 +195,7 @@ __Part II__
 - [x] Explain why message "`Failed to receive data from queue`" was displayed.
 
 __Part III__
-- [x] Screenshot of message on the Serial Port terminal showing the pressed button.
+- [x] Screenshot of message on the serial port Terminal showing the pressed buttons.
 
 3. Individual conclusions
 
@@ -202,4 +205,4 @@ __Part III__
 
 4. Appendix A
    * Link to the GitHub repository with all the working codes for Parts I through IV of the laboratory. 
-   * Link to a video showing your working code and explaining the indicated items for Parts I through IV. 
+   * Link to a video showing your working code and explaining the indicated items for Parts I, II and III. 
