@@ -15,16 +15,16 @@ The following activities provide testing ASM codes for you to assemble, compile 
 
 Activity | Description | source code
  :---: | :--- | :---
-Activity 1 | Program that returns an Exit code | first.s
-Activity 2 | Hello, World! | hello.s
-Activity 3 | Arithmetic with integer variables | sum1.s
-Activity 4 | Arithmetic with integer variables, version 2 | sum2.s
-Activity 5 | Passing parameters by value | sum3.s
-Activity 6 | Passing parameters by reference | sum4.s
-Activity 7 | Using the C-function `scanf()` for User input | scanfExample.s
-Activity 8 | Pausing the program using the `sleep()`/`usleep()` C functions | delayExample.s
-Activity 9 | Recursive Towers of Hanoi | hanoi.s and hanoi2.s
-Activity 10 | Blinking LED | blink.s
+Activity 1 | Program that returns an Exit code | [first.s](Exercises/first.s)
+Activity 2 | Hello, World! | [hello.s](Exercises/hello.s)
+Activity 3 | Arithmetic with integer variables | [sum1.s](Exercises/sum1.s)
+Activity 4 | Arithmetic with integer variables, version 2 | [sum2.s](Exercises/sum2.s)
+Activity 5 | Passing parameters by value | [sum3.s](Exercises/sum3.s)
+Activity 6 | Passing parameters by reference | [sum4.s](Exercises/sum4.s)
+Activity 7 | Using the C-function `scanf()` for User input | [scanfExample1.s](Exercises/scanfExample1.s)
+Activity 8 | Pausing the program using the `sleep()`/`usleep()` C functions | [delayExample.s](Exercises/delayExample.s)
+Activity 9 | Recursive Towers of Hanoi | [hanoi.s](Exercises/hanoi.s) and [hanoi2.s](Exercises/hanoi2.s)
+Activity 10 | Blinking LED | [blink.s](Exercises/blink.s)
 
 ### Part II - Firmware development
 1.	Write a program that writes the values `0xAAAAAAAA`, `0xBBBBBBBB` and `0xCCCCCCCC` to the memory location assigned to the variable `y` using three different addressing modes (three different instructions), using the development tools like `gcc` and `gdb`.
