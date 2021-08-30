@@ -11,7 +11,25 @@
 ## Activities
 
 ### Part I - Code assembly, compiling and testing
-The following activities provide testing ASM codes for you to assemble, compile and run on the Raspberry Pi. Try out each of the sample programs for each activity on your assigned RPi and take screenshots of your outputs. All ASM codes are available on GitHub on the following link: 
+The following activities provide testing ASM codes for you to assemble, compile and run on the Raspberry Pi. 
+
+To assemble the program `test.s`, type in on the terminal:
+
+```as -o test.o test.s```
+
+Then, to compile it:
+
+```gcc -g -o test test.o```
+
+To execute the program, use:
+
+```./test```
+
+If you want to debug your program using `gdb` (argument `-g` is necessary at compiling time), use:
+
+```gdb test```
+
+Try out each of the sample programs for each activity on your assigned RPi and take screenshots of your outputs. All ASM codes are available on GitHub on the following links: 
 
 Activity | Description | source code
  :---: | :--- | :---
