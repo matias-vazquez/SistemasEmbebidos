@@ -2,7 +2,7 @@
 <img src="img/teclogo.png">
 </div>
 
- Laboratory 4: Assembly programming in Raspbian
+ # Laboratory 4: Assembly programming in Raspbian
 
 ## Objectives
 * To become familiar with Assembler instructions to manipulate registers at low level programming
@@ -10,7 +10,7 @@
 
 ## Activities
 
-### Part I
+### Part I - Code assembly, compiling and testing
 The following activities provide testing ASM codes for you to assemble, compile and run on the Raspberry Pi. Try out each of the sample programs for each activity on your assigned RPi and take screenshots of your outputs. All ASM codes are available on GitHub on the following link: 
 
 Activity | Description | source code
@@ -26,7 +26,7 @@ Activity 8 | Pausing the program using the `sleep()`/`usleep()` C functions | de
 Activity 9 | Recursive Towers of Hanoi | hanoi.s and hanoi2.s
 Activity 10 | Blinking LED | blink.s
 
-### Part II
+### Part II - Firmware development
 1.	Write a program that writes the values `0xAAAAAAAA`, `0xBBBBBBBB` and `0xCCCCCCCC` to the memory location assigned to the variable `y` using three different addressing modes (three different instructions), using the development tools like `gcc` and `gdb`.
     1. Determine the address assigned to the memory location and report this value. 
     2. Display the register content and memory location before and after executing each instruction and report these values. Justify the results according to the addressing mode. 
@@ -42,3 +42,9 @@ Activity 10 | Blinking LED | blink.s
 4.	Modify the previous code to include three operands
 5.	Write a program to compute the following equation $6x^2 + 9x + 2$. Read the value of $x$ using `scanf` and print the result using `printf`. Use the `MUL` instruction to compute multiplications found in this program.
 
+## Report
+Turn in a technical report including the following:
+* Links to GitHub of Activities of part I and II
+* Links to YouTube with demo videos of your working code
+* Screenshots of the Terminal showing the output of your programs
+* Conclusions
