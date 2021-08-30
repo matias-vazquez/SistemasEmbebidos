@@ -1,4 +1,8 @@
-# Assembly programmin in Raspbian
+<div align="right">
+<img src="img/teclogo.png">
+</div>
+
+ Laboratory 4: Assembly programming in Raspbian
 
 ## Objectives
 * To become familiar with Assembler instructions to manipulate registers at low level programming
