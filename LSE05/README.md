@@ -61,6 +61,21 @@ $ sudo make check
 $ sudo make install
 ```
 ## Lab work
+
+### Materials
+
+<div align="center">
+
+Qty | Material
+:---: | :---
+1 | Raspberry Pi 3 with Raspbian OS
+1 | Tiny RTC I<sup>2</sup>C module DS1307
+1 | Temperature sensor TC74
+1 | Breadboard
+As needed | jump wires
+
+</div>
+
 ### Part I. Hardware and Fire Test
 1. The hardware setup, including Raspberry Pi 3 + Tiny RTC I<sup>2</sup>C module DS1307 + temperature sensor TC74:
 
