@@ -69,7 +69,7 @@ Your embedded system must be coded either in C, Assembly, Python, or a combinati
 Some past projects that you can use as reference for your proposal are listed below:
 - [Automatic Bottle Refiller](https://tecmx.sharepoint.com/:b:/s/Teaching338/EbiwVtB3eCBGuWFWLGIfyG0Bh6XBNwGkwdG4H5nf4E6l-w?e=i2d03F)
 - [Heat Map](https://tecmx.sharepoint.com/:b:/s/Teaching338/ETxaM5CzYvxPmdP3Fi7IPWMBiYbobJSL1P_0-zMEMTNPTg?e=b0wbz1)
-- [Lector de Tarjetas RFID para control de acceso](https://tecmx.sharepoint.com/:b:/s/Teaching338/ETaL0oHck8pKnIiTgz3kMgQBv_1TryCqKOUqGXiSfkJbFg?e=8ZYV7s)
+- [Lector de Tarjetas RFID para control de acceso](https://tecmx.sharepoint.com/:b:/s/Teaching338/ES-dvkO0NKFDqhuAeWkliEwBfogvghpaIT4S8x-qpp82fQ?e=XsJUCI)
 - [Rotate Table Filling Machine](https://tecmx.sharepoint.com/:b:/s/Teaching338/EWD9uGWFb1JKrWolU4xytiMBhPKjteYw_jD80pfK4v-upg?e=GzfZ5k)
 - [Rubik's Cube Solver](https://tecmx.sharepoint.com/:b:/s/Teaching338/EZh-aufrlVlLnUcPC4QnfIgB-qK_XoZI66aH_ovedWSvrQ?e=sr8Bsi)
 - [Temperature Control Through Smartphone](https://tecmx.sharepoint.com/:b:/s/Teaching338/ETaL0oHck8pKnIiTgz3kMgQBv_1TryCqKOUqGXiSfkJbFg?e=8ZYV7s)
